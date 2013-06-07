@@ -1,22 +1,26 @@
 # Case
 
-String case conversions
+String case conversion and identification tool.
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/nbubna/case/master/dist/case.min.js
-[max]: https://raw.github.com/nbubna/case/master/dist/case.js
+[min]: https://raw.github.com/nbubna/case/master/dist/Case.min.js
+[max]: https://raw.github.com/nbubna/case/master/dist/Case.js
 
 In your web page:
 
 ```html
-<script src="jquery.js"></script>
-<script src="dist/case.min.js"></script>
+<script src="dist/Case.min.js"></script>
 <script>
-jQuery(function($) {
-  $.awesome(); // "awesome"
-});
+Case.of(str)
+Case.upper(str)
+Case.lower(str)
+Case.snake(str)
+Case.camel(str)
+Case.title(str)
+Case.capital(str)
+Case.sentence(str, properNames)
 </script>
 ```
 
