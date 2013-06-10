@@ -88,7 +88,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-notify');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'clean', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'clean', 'concat', 'qunit', 'uglify']);
   grunt.registerTask('test', ['jasmine']);
 
 };
