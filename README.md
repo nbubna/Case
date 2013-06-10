@@ -6,7 +6,7 @@ Bower: `bower install Case`  (note the big 'C')
 
 [prod]: https://raw.github.com/nbubna/Case/master/dist/Case.min.js
 [dev]: https://raw.github.com/nbubna/Case/master/dist/Case.js
-[npm]: https://npmjs.org/package/Case
+[npm]: https://npmjs.org/package/case
 
 ## Documentation
 Each of the following functions will first "undo" previous case manipulations
