@@ -1,5 +1,5 @@
 {
-  "name": "Case",
+  "name": "case",
   "description": "Extensible string utility for converting, identifying and flipping string case",
   "keywords": [
     "string",
