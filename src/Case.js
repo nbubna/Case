@@ -4,39 +4,43 @@
  */
 (function() {
     var re = {
-        // conversion
-        uncapital: /(^|\W|_)([a-z])/g,
-        unsnake: /[^\w]/g,
-        uncamel: /[^a-zA-Z]+([a-zA-Z])/g,
+        capitalize: /(^|\W|_)([a-z])/g,
+        squish: /(^|[\W_])+([a-zA-Z])/g,
+        fill: /[\W_]+(.|$)/g,
+        sentence: /(^\s*|[\?\!\.]+"?\s+"?|,\s+")([a-z])/g,
         improper: /\b(A|An|And|As|At|But|By|En|For|If|In|Of|On|Or|The|To|Vs?\.?|Via)\b/g,
-        // normalization
-        desnake: /_/g,
-        decamel: /(\w)([A-Z])/g,
-        unclean: /[^\w ]/g,
+        relax: /([a-zA-Z0-9])([A-Z])/g,
         upper: /^[^a-z]+$/
     },
     _ = {
         re: re,
+        types: [],
         up: String.prototype.toUpperCase,
         low: String.prototype.toLowerCase,
-        normal: function(s, snake, camel, upper) {
+        cap: function(s) {
+            return _.up.call(s.charAt(0))+s.slice(1);
+        },
+        decap: function(s) {
+            return _.low.call(s.charAt(0))+s.slice(1);
+        },
+        fill: function(s, fill) {
+            return !s || fill == null ? s : s.replace(re.fill, function(m, next) {
+                return next ? fill + next : '';
+            });
+        },
+        prep: function(s, fill, squish, upper) {
             if (!s){ return s || ''; }
             if (!upper && re.upper.test(s)) {
                 s = _.low.call(s);
             }
-            if (s.search(/\s/) < 0) {
-                if (!snake){ s = s.replace(re.desnake, ' '); }
-                if (!camel){ s = s.replace(re.decamel, '$1 $2'); }
+            if (!fill && !/\s/.test(s)) {
+                s = _.fill(s, ' ');
             }
-            return snake || camel ? _.clean(s) : s;
-        },
-        clean: function(s) {
-            return s.replace(re.unclean, '');
-        },
-        capitalize: function(s) {
-            return _.up.call(s.charAt(0))+s.substr(1);
-        },
-        types: 'upper snake lower camel capital sentence title'.split(' ')
+            if (!squish && !re.fill.test(s)) {
+                s = s.replace(re.relax, '$1 $2');
+            }
+            return s;
+        }
     },
     Case = {
         _: _,
@@ -45,42 +49,57 @@
                 if (Case[_.types[i]](s) === s){ return _.types[i]; }
             }
         },
-        lower: function(s) {
-            return _.low.call(_.normal(s));
-        },
-        upper: function(s) {
-            return _.up.call(_.normal(s,0,0,1));
-        },
-        sentence: function(s, names) {
-            s = Case.lower(s)
-                .replace(/\w/, function(letter){ return _.up.call(letter); });
-            if (names) {
-                for (var i=0,m=names.length; i<m; i++) {
-                    s = s.replace(new RegExp(names[i]), _.capitalize);
-                }
-            }
-            return s;
-        },
-        capital: function(s) {
-            return _.normal(s).replace(re.uncapital, function(m, border, letter) {
-                return border+_.up.call(letter);
+        flip: function(s) {
+            return s.replace(/\w/g, function(l) {
+                return l == _.up.call(l) ? _.low.call(l) : _.up.call(l);
             });
+        },
+        type: function(type, fn) {
+            Case[type] = fn;
+            _.types.push(type);
+        }
+    },
+    types = {
+        snake: function(s){ return Case.lower(s, '_'); },
+        constant: function(s){ return Case.upper(s, '_'); },
+        camel: function(s){ return _.decap(Case.squish(s)); },
+        lower: function(s, fill) {
+            return _.fill(_.low.call(_.prep(s, fill)), fill);
+        },
+        upper: function(s, fill) {
+            return _.fill(_.up.call(_.prep(s, fill, false, true)), fill);
+        },
+        capital: function(s, fill) {
+            return _.fill(_.prep(s).replace(re.capitalize, function(m, border, letter) {
+                return border+_.up.call(letter);
+            }), fill);
+        },
+        squish: function(s) {
+            return _.fill(_.prep(s, false, true).replace(re.squish, function(m, border, letter) {
+                return _.up.call(letter);
+            }), '');
         },
         title: function(s) {
-            return Case.capital(s).replace(re.improper, function(match) {
-                return _.low.call(match);
+            return Case.capital(s).replace(re.improper, function(small) {
+                return _.low.call(small);
             });
         },
-        snake: function(s) {
-            return _.low.call(_.normal(s,1)).replace(re.unsnake, '_');
-        },
-        camel: function(s) {
-            s = _.normal(s,0,1).replace(re.uncamel, function(m, letter) {
-                return _.up.call(letter);
+        sentence: function(s, names) {
+            s = Case.lower(s).replace(re.sentence, function(m, prelude, letter) {
+                return prelude + _.up.call(letter);
             });
-            return _.low.call(s.charAt(0)) + s.substr(1);
+            if (names) {
+                names.forEach(function(name) {
+                    s = s.replace(new RegExp('\\b'+Case.lower(name)+'\\b', "g"), _.cap);
+                });
+            }
+            return s;
         }
     };
+
+    for (var type in types) {
+        Case.type(type, types[type]);
+    }
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = Case;
     } else {
