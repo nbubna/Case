@@ -1,8 +1,8 @@
 ### Case: An extensible utility to convert, identify, and flip string case.
 
 Download: [Case.min.js][prod]  or  [Case.js][dev]  
-Bower: `bower install Case`  (note the big 'C')
-[NPM][npm]: `npm install case`  (little 'c' due to NPM restrictions)
+Bower: `bower install Case`  (note the big 'C')  
+[NPM][npm]: `npm install case`  (little 'c' due to NPM restrictions)  
 
 [prod]: https://raw.github.com/nbubna/Case/master/dist/Case.min.js
 [dev]: https://raw.github.com/nbubna/Case/master/dist/Case.js
@@ -16,12 +16,12 @@ before applying the desired case to the given string.
 Case.upper('foo_bar')                       -> 'FOO BAR'
 Case.lower('fooBar')                        -> 'foo bar'
 Case.snake('Foo bar!')                      -> 'foo_bar'
-Case.squish(foo.bar')                       -> 'FooBar'
+Case.squish('foo.bar')                      -> 'FooBar'
 Case.camel('foo, bar')                      -> 'fooBar'
 Case.constant('Foo-Bar')                    -> 'FOO_BAR'
 Case.title('foo v. bar')                    -> 'Foo v. Bar'
 Case.capital('foo_v_bar')                   -> 'Foo V Bar'
-Case.sentence('"foo!" said bar', ['Bar']) -> '"Foo!" said Bar'
+Case.sentence('"foo!" said bar', ['Bar'])   -> '"Foo!" said Bar'
 ```
 
 `sentence(str, names)` accepts an array of proper names that should be capitalized,
