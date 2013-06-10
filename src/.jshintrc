@@ -1,6 +1,6 @@
 {
   "curly": true,
-  "eqeqeq": true,
+  "eqeqeq": false,
   "immed": true,
   "latedef": true,
   "newcap": true,
@@ -13,6 +13,7 @@
   "browser": true,
   "globals": {
     "module": true,
-    "Case": true
+    "Case": true,
+    "require": true
   }
 }

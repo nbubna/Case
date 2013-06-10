@@ -1,6 +1,6 @@
 {
   "name": "Case",
-  "description": "string case conversions",
+  "description": "Extensible string utility for converting, identifying and flipping string case",
   "keywords": [
     "string",
     "case",
@@ -9,10 +9,13 @@
     "upper",
     "lower",
     "snake",
+    "squish",
+    "constant",
+    "flip",
     "capitalization",
     "converter"
   ],
-  "version": "0.9.0",
+  "version": "1.0.0",
   "author": {
     "name": "Nathan Bubna",
     "email": "nathan@esha.com",

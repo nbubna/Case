@@ -1,0 +1,10 @@
+{
+  "name": "Case",
+  "version": "1.0.0",
+  "main": "dist/Case.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}

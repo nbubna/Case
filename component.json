@@ -1,0 +1,28 @@
+{
+  "name": "Case",
+  "repo": "nbubna/Case",
+  "description": "Extensible string utility for converting, identifying and flipping string case",
+  "version": "1.0.0",
+  "keywords": [
+    "string",
+    "case",
+    "camel",
+    "title",
+    "upper",
+    "lower",
+    "snake",
+    "squish",
+    "constant",
+    "flip",
+    "capitalization",
+    "converter"
+  ],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "src/component.js",
+  "scripts": [
+    "src/component.js",
+    "dist/Case.js"
+  ]
+}
