@@ -79,4 +79,10 @@
     strictEqual('bang'.toBangCase(), 'BANG!');
   });
 
+  module('issues');
+  test('#1 - single letter word decamel-izing', function() {
+    strictEqual(Case.snake('thisIsATest'), 'this_is_a_test');
+    strictEqual(Case.capital('thisIsATestByESHAResearch'), 'This Is A Test By ESHA Research');
+  });
+
 }());

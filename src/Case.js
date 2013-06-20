@@ -9,8 +9,10 @@
         fill: /[\W_]+(.|$)/g,
         sentence: /(^\s*|[\?\!\.]+"?\s+"?|,\s+")([a-z])/g,
         improper: /\b(A|An|And|As|At|But|By|En|For|If|In|Of|On|Or|The|To|Vs?\.?|Via)\b/g,
-        relax: /([a-zA-Z0-9])([A-Z])/g,
-        upper: /^[^a-z]+$/
+        relax: /([^A-Z])([A-Z]*)([A-Z])(?=[a-z]|$)/g,
+        upper: /^[^a-z]+$/,
+        hole: /\s/,
+        room: /[\W_]/
     },
     _ = {
         re: re,
@@ -33,13 +35,16 @@
             if (!upper && re.upper.test(s)) {
                 s = _.low.call(s);
             }
-            if (!fill && !/\s/.test(s)) {
+            if (!fill && !re.hole.test(s)) {
                 s = _.fill(s, ' ');
             }
-            if (!squish && !re.fill.test(s)) {
-                s = s.replace(re.relax, '$1 $2');
+            if (!squish && !re.room.test(s)) {
+                s = s.replace(re.relax, _.relax);
             }
             return s;
+        },
+        relax: function(m, before, acronym, caps) {
+            return before + ' ' + (acronym ? acronym+' ' : '') + caps;
         }
     },
     Case = {
