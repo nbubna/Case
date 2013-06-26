@@ -20,9 +20,8 @@
   "dependencies": {},
   "development": {},
   "license": "MIT",
-  "main": "src/component.js",
+  "main": "dist/Case.js",
   "scripts": [
-    "src/component.js",
     "dist/Case.js"
   ]
 }
