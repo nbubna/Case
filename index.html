@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Case by nbubna</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Case</h1>
+        <p>String case utitility: convert, identify, flip, extend</p>
+
+        <p class="view"><a href="https://github.com/nbubna/Case">View the Project on GitHub <small>nbubna/Case</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/nbubna/Case/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/nbubna/Case/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/nbubna/Case">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a name="case-an-extensible-utility-to-convert-identify-and-flip-string-case" class="anchor" href="#case-an-extensible-utility-to-convert-identify-and-flip-string-case"><span class="octicon octicon-link"></span></a>Case: An extensible utility to convert, identify, and flip string case.</h3>
+
+<p>Download: <a href="https://raw.github.com/nbubna/Case/master/dist/Case.min.js">Case.min.js</a>  or  <a href="https://raw.github.com/nbubna/Case/master/dist/Case.js">Case.js</a><br>
+Bower: <code>bower install Case</code>  (note the big 'C')<br><a href="https://npmjs.org/package/case">NPM</a>: <code>npm install case</code>  (little 'c' due to NPM restrictions)  </p>
+
+<h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p>Each of the following functions will first "undo" previous case manipulations
+before applying the desired case to the given string.</p>
+
+<div class="highlight"><pre><span class="nx">Case</span><span class="p">.</span><span class="nx">upper</span><span class="p">(</span><span class="s1">'foo_bar'</span><span class="p">)</span>                       <span class="o">-&gt;</span> <span class="s1">'FOO BAR'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">lower</span><span class="p">(</span><span class="s1">'fooBar'</span><span class="p">)</span>                        <span class="o">-&gt;</span> <span class="s1">'foo bar'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">snake</span><span class="p">(</span><span class="s1">'Foo bar!'</span><span class="p">)</span>                      <span class="o">-&gt;</span> <span class="s1">'foo_bar'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">squish</span><span class="p">(</span><span class="s1">'foo.bar'</span><span class="p">)</span>                      <span class="o">-&gt;</span> <span class="s1">'FooBar'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">camel</span><span class="p">(</span><span class="s1">'foo, bar'</span><span class="p">)</span>                      <span class="o">-&gt;</span> <span class="s1">'fooBar'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">constant</span><span class="p">(</span><span class="s1">'Foo-Bar'</span><span class="p">)</span>                    <span class="o">-&gt;</span> <span class="s1">'FOO_BAR'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">title</span><span class="p">(</span><span class="s1">'foo v. bar'</span><span class="p">)</span>                    <span class="o">-&gt;</span> <span class="s1">'Foo v. Bar'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">capital</span><span class="p">(</span><span class="s1">'foo_v_bar'</span><span class="p">)</span>                   <span class="o">-&gt;</span> <span class="s1">'Foo V Bar'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">sentence</span><span class="p">(</span><span class="s1">'"foo!" said bar'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Bar'</span><span class="p">])</span>   <span class="o">-&gt;</span> <span class="s1">'"Foo!" said Bar'</span>
+</pre></div>
+
+<p><code>sentence(str, names)</code> accepts an array of proper names that should be capitalized,
+regardless of location in the sentence.  This function is specialized, but useful
+when dealing with input generated with capslock on (i.e. everything my grandma types).</p>
+
+<p>There are three additional functions:</p>
+
+<ul>
+<li>
+<code>of(str)</code>: identifies the case of a string, returns undefined if it doesn't match a known type</li>
+<li>
+<code>flip(str)</code>: reverses the case of letters, no other changes</li>
+<li>
+<code>type(name, fn)</code>: extends Case with a new case type</li>
+</ul><div class="highlight"><pre><span class="nx">Case</span><span class="p">.</span><span class="nx">of</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">)</span>          <span class="o">-&gt;</span> <span class="s1">'lower'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">of</span><span class="p">(</span><span class="s1">'foo_bar'</span><span class="p">)</span>      <span class="o">-&gt;</span> <span class="s1">'snake'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">of</span><span class="p">(</span><span class="s1">'Foo v Bar'</span><span class="p">)</span>    <span class="o">-&gt;</span> <span class="s1">'title'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">of</span><span class="p">(</span><span class="s1">'foo_ Bar'</span><span class="p">)</span>     <span class="o">-&gt;</span> <span class="kc">undefined</span>
+
+<span class="nx">Case</span><span class="p">.</span><span class="nx">flip</span><span class="p">(</span><span class="s1">'FlipMe'</span><span class="p">)</span>     <span class="o">-&gt;</span> <span class="s1">'fLIPmE'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">flip</span><span class="p">(</span><span class="s1">'TEST THIS!'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'test this!'</span>
+
+<span class="nx">Case</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s1">'bang'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">Case</span><span class="p">.</span><span class="nx">upper</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="s1">'!'</span><span class="p">)</span><span class="o">+</span><span class="s1">'!'</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">bang</span><span class="p">(</span><span class="s1">'bang'</span><span class="p">)</span>       <span class="o">-&gt;</span> <span class="s1">'BANG!'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">of</span><span class="p">(</span><span class="s1">'TEST!THIS!'</span><span class="p">)</span>   <span class="o">-&gt;</span> <span class="s1">'bang'</span>
+</pre></div>
+
+<p>Registering functions via <code>type()</code> means <code>Case.of</code> supports them automatically.</p>
+
+<p>Oh, did you notice that little <code>Case.upper(s, '!')</code>?
+Yeah, <code>upper()</code> and <code>lower()</code> accept a second "fill" argument
+that will replace any characters which are not letters or numbers.
+It's handy, sometimes. :)</p>
+
+<h2>
+<a name="release-history" class="anchor" href="#release-history"><span class="octicon octicon-link"></span></a>Release History</h2>
+
+<ul>
+<li>2013-06-10 v1.0.0 (public, initial)</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nbubna">nbubna</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
