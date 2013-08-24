@@ -24,6 +24,10 @@ module.exports = function(grunt) {
         src: ['src/<%= pkg.name %>.js'],
         dest: 'dist/<%= pkg.name %>.js'
       },
+      plus: {
+        src: ['src/<%= pkg.name %>.js', 'src/toCase.js'],
+        dest: 'dist/<%= pkg.name %>.plus.js'
+      }
     },
     uglify: {
       options: {
@@ -32,6 +36,10 @@ module.exports = function(grunt) {
       dist: {
         src: '<%= concat.dist.dest %>',
         dest: 'dist/<%= pkg.name %>.min.js'
+      },
+      plus: {
+        src: '<%= concat.plus.dest %>',
+        dest: 'dist/<%= pkg.name %>.plus.min.js'
       },
     },
     qunit: {
