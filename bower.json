@@ -1,6 +1,6 @@
 {
   "name": "Case",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/Case.js",
   "description": "Extensible string utility for converting, identifying and flipping string case",
   "keywords": [
@@ -38,6 +38,11 @@
   ],
   "ignore": [
     "**/.*",
+    "libs",
+    "src",
+    "component.json",
+    "Gruntfile.js",
+    "CONTRIBUTING.md",
     "node_modules",
     "components"
   ]
