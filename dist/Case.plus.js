@@ -1,6 +1,6 @@
-/*! Case - v1.0.2 - 2013-08-23
+/*! Case - v1.0.3 - 2013-08-23
 * Copyright (c) 2013 Nathan Bubna; Licensed MIT, GPL */
-(function(window) {
+(function() {
     "use strict";
     var re = {
         capitalize: /(^|\W|_)([a-z])/g,
@@ -109,9 +109,9 @@
     } else if (typeof module !== 'undefined' && module.exports) {
         module.exports = Case;
     } else {
-        window.Case = Case;
+        this.Case = Case;
     }
-})(window);
+}).call(this);
 
 (function(Case, _) {
     function create(type) {

@@ -2,7 +2,7 @@
  * Copyright (c) 2013 ESHA Research
  * License under the MIT license.
  */
-(function(window) {
+(function() {
     "use strict";
     var re = {
         capitalize: /(^|\W|_)([a-z])/g,
@@ -111,6 +111,6 @@
     } else if (typeof module !== 'undefined' && module.exports) {
         module.exports = Case;
     } else {
-        window.Case = Case;
+        this.Case = Case;
     }
-})(window);
+}).call(this);
