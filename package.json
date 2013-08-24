@@ -27,7 +27,7 @@
   "files": [
     "src"
   ],
-  "main": "dist/Case.js",
+  "main": "src/Case.js",
   "bugs": {
     "url": "http://github.com/nbubna/Case/issues",
     "email": "nathan@esharesearch.com"
