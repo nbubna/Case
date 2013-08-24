@@ -2,7 +2,8 @@
  * Copyright (c) 2013 ESHA Research
  * License under the MIT license.
  */
-(function() {
+(function(window) {
+    "use strict";
     var re = {
         capitalize: /(^|\W|_)([a-z])/g,
         squish: /(^|[\W_])+([a-zA-Z])/g,
@@ -105,9 +106,11 @@
     for (var type in types) {
         Case.type(type, types[type]);
     }
-    if (typeof module !== 'undefined' && module.exports) {
+    if (typeof define === 'function' && define.amd) {
+        define(function(){ return Case; });
+    } else if (typeof module !== 'undefined' && module.exports) {
         module.exports = Case;
     } else {
-        this.Case = Case;
+        window.Case = Case;
     }
-})();
+})(window);
