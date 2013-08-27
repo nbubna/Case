@@ -58,8 +58,10 @@ It's handy, sometimes. :)
 
 
 ## Release History
-* 2013-06-10 [v1.0.0][] (public, initial)
-* 2013-08-23 [v1.0.3][] (fixes for Bower and NPM package definitions, AMD export, strict mode, 'plus' artifact)
+* 2013-06-10 v1.0.0 (public, initial)
+* 2013-06-20 v1.0.1 (regex improvements)
+* 2013-08-23 v1.0.3 (better support for Node, Component and AMD)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
+[v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
 [v1.0.3]: https://github.com/nbubna/store/tree/1.0.3
