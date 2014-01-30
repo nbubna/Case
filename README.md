@@ -65,3 +65,7 @@ It's handy, sometimes. :)
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
 [v1.0.3]: https://github.com/nbubna/store/tree/1.0.3
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nbubna/case/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
