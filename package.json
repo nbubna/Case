@@ -61,6 +61,7 @@
     "phantomjs": "1.8.2-0",
     "grunt-component-build": "~0.2.7",
     "grunt-contrib-jasmine": "~0.4.2",
-    "grunt-notify": "~0.2.4"
+    "grunt-notify": "~0.2.4",
+    "grunt-cli": "^0.1"
   }
 }

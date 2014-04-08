@@ -1,8 +1,9 @@
 ### Case: An extensible utility to convert, identify, and flip string case.
 
-Download: [Case.min.js][prod]  or  [Case.js][dev]  
+Download: [Case.min.js][prod]  or  [Case.js][dev] [![Build Status](https://travis-ci.org/nbubna/Case.png?branch=master)](https://travis-ci.org/nbubna/Case)  
 Bower: `bower install Case`  (note the big 'C')  
 [NPM][npm]: `npm install case`  (little 'c' due to NPM restrictions)  
+[Component][component]: `component install nbubna/Case`  
 
 [prod]: https://raw.github.com/nbubna/Case/master/dist/Case.min.js
 [dev]: https://raw.github.com/nbubna/Case/master/dist/Case.js
