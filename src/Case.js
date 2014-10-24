@@ -1,22 +1,39 @@
 /*
- * Copyright (c) 2013 ESHA Research
+ * Copyright (c) 2014 ESHA Research
  * License under the MIT license.
  */
 (function() {
     "use strict";
-    var re = {
-        capitalize: /(^|\W|_)([a-z])/g,
-        squish: /(^|[\W_])+([a-zA-Z])/g,
-        fill: /[\W_]+(.|$)/g,
-        sentence: /(^\s*|[\?\!\.]+"?\s+"?|,\s+")([a-z])/g,
-        improper: /\b(A|An|And|As|At|But|By|En|For|If|In|Of|On|Or|The|To|Vs?\.?|Via)\b/g,
-        relax: /([^A-Z])([A-Z]*)([A-Z])(?=[a-z]|$)/g,
-        upper: /^[^a-z]+$/,
-        hole: /\s/,
-        room: /[\W_]/
+    var unicodes = function(s, prefix) {
+        prefix = prefix || '';
+        return s.replace(/(^|-)/g, '$1\\u'+prefix).replace(/,/g, '\\u'+prefix);
     },
+    basicSymbols = unicodes('20-2F,3A-40,5B-60,7B-7E,A0-BF,D7,F7', '00'),
+    baseLowerCase = 'a-z'+unicodes('DF-F6,F8-FF', '00'),
+    baseUpperCase = 'A-Z'+unicodes('C0-D6,D8-DE', '00'),
+    improperInTitle = 'A|An|And|As|At|But|By|En|For|If|In|Of|On|Or|The|To|Vs?\\.?|Via',
+    regexps = function(symbols, lowers, uppers, impropers) {
+        symbols = symbols || basicSymbols;
+        lowers = lowers || baseLowerCase;
+        uppers = uppers || baseUpperCase;
+        impropers = impropers || improperInTitle;
+        return {
+            capitalize: new RegExp('(^|['+symbols+'])(['+lowers+'])', 'g'),
+            squish: new RegExp('(^|['+symbols+'])+(['+lowers+uppers+'])', 'g'),
+            fill: new RegExp('['+symbols+']+(.|$)','g'),
+            sentence: new RegExp('(^\\s*|[\\?\\!\\.]+"?\\s+"?|,\\s+")(['+lowers+'])', 'g'),
+            improper: new RegExp('\\b('+impropers+')\\b', 'g'),
+            relax: new RegExp('([^'+uppers+'])(['+uppers+']*)(['+uppers+'])(?=['+lowers+']|$)', 'g'),
+            upper: new RegExp('^[^'+lowers+']+$'),
+            hole: /\s/,
+            room: new RegExp('['+symbols+']')
+        };
+    },
+    re = regexps(),
     _ = {
         re: re,
+        unicodes: unicodes,
+        regexps: regexps,
         types: [],
         up: String.prototype.toUpperCase,
         low: String.prototype.toLowerCase,
