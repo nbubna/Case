@@ -62,11 +62,9 @@ It's handy, sometimes. :)
 * 2013-06-10 v1.0.0 (public, initial)
 * 2013-06-20 v1.0.1 (regex improvements)
 * 2013-08-23 v1.0.3 (better support for Node, Component and AMD)
+* 2014-10-24 v1.1.0 (regexps used are now extensible and support more latin diacritics)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
 [v1.0.3]: https://github.com/nbubna/store/tree/1.0.3
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nbubna/case/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
+[v1.1.0]: https://github.com/nbubna/store/tree/1.1.0

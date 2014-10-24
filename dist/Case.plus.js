@@ -1,20 +1,37 @@
-/*! Case - v1.0.3 - 2014-04-08
+/*! Case - v1.1.0 - 2014-10-24
 * Copyright (c) 2014 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
-    var re = {
-        capitalize: /(^|\W|_)([a-z])/g,
-        squish: /(^|[\W_])+([a-zA-Z])/g,
-        fill: /[\W_]+(.|$)/g,
-        sentence: /(^\s*|[\?\!\.]+"?\s+"?|,\s+")([a-z])/g,
-        improper: /\b(A|An|And|As|At|But|By|En|For|If|In|Of|On|Or|The|To|Vs?\.?|Via)\b/g,
-        relax: /([^A-Z])([A-Z]*)([A-Z])(?=[a-z]|$)/g,
-        upper: /^[^a-z]+$/,
-        hole: /\s/,
-        room: /[\W_]/
+    var unicodes = function(s, prefix) {
+        prefix = prefix || '';
+        return s.replace(/(^|-)/g, '$1\\u'+prefix).replace(/,/g, '\\u'+prefix);
     },
+    basicSymbols = unicodes('20-2F,3A-40,5B-60,7B-7E,A0-BF,D7,F7', '00'),
+    baseLowerCase = 'a-z'+unicodes('DF-F6,F8-FF', '00'),
+    baseUpperCase = 'A-Z'+unicodes('C0-D6,D8-DE', '00'),
+    improperInTitle = 'A|An|And|As|At|But|By|En|For|If|In|Of|On|Or|The|To|Vs?\\.?|Via',
+    regexps = function(symbols, lowers, uppers, impropers) {
+        symbols = symbols || basicSymbols;
+        lowers = lowers || baseLowerCase;
+        uppers = uppers || baseUpperCase;
+        impropers = impropers || improperInTitle;
+        return {
+            capitalize: new RegExp('(^|['+symbols+'])(['+lowers+'])', 'g'),
+            squish: new RegExp('(^|['+symbols+'])+(['+lowers+uppers+'])', 'g'),
+            fill: new RegExp('['+symbols+']+(.|$)','g'),
+            sentence: new RegExp('(^\\s*|[\\?\\!\\.]+"?\\s+"?|,\\s+")(['+lowers+'])', 'g'),
+            improper: new RegExp('\\b('+impropers+')\\b', 'g'),
+            relax: new RegExp('([^'+uppers+'])(['+uppers+']*)(['+uppers+'])(?=['+lowers+']|$)', 'g'),
+            upper: new RegExp('^[^'+lowers+']+$'),
+            hole: /\s/,
+            room: new RegExp('['+symbols+']')
+        };
+    },
+    re = regexps(),
     _ = {
         re: re,
+        unicodes: unicodes,
+        regexps: regexps,
         types: [],
         up: String.prototype.toUpperCase,
         low: String.prototype.toLowerCase,
@@ -104,13 +121,10 @@
     for (var type in types) {
         Case.type(type, types[type]);
     }
-    if (typeof define === 'function' && define.amd) {
-        define(function(){ return Case; });
-    } else if (typeof module !== 'undefined' && module.exports) {
-        module.exports = Case;
-    } else {
-        this.Case = Case;
-    }
+    // export Case (AMD, commonjs, or window)
+    var define = window.define || function(){};
+    define((window.exports||window).Case = Case);
+
 }).call(this);
 
 (function(Case, _) {
