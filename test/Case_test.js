@@ -85,4 +85,10 @@
     strictEqual(Case.capital('thisIsATestByESHAResearch'), 'This Is A Test By ESHA Research');
   });
 
+  test('#7 - diacritics', function() {
+    equal(Case.upper('résumé'), 'RÉSUMÉ');
+    equal(Case.lower('RÉSUMÉ'), 'résumé');
+    equal(Case.snake('SíDéRá'), 'sí_dé_rá');
+  });
+
 }());
