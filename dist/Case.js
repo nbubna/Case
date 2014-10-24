@@ -1,4 +1,4 @@
-/*! Case - v1.1.0 - 2014-10-24
+/*! Case - v1.1.1 - 2014-10-24
 * Copyright (c) 2014 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
@@ -121,8 +121,8 @@
     for (var type in types) {
         Case.type(type, types[type]);
     }
-    // export Case (AMD, commonjs, or window)
-    var define = window.define || function(){};
-    define((window.exports||window).Case = Case);
+    // export Case (AMD, commonjs, or global)
+    var define = this.define || function(){};
+    define((this.exports||this).Case = Case);
 
 }).call(this);
