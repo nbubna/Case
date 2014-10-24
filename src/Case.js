@@ -123,11 +123,8 @@
     for (var type in types) {
         Case.type(type, types[type]);
     }
-    if (typeof define === 'function' && define.amd) {
-        define(function(){ return Case; });
-    } else if (typeof module !== 'undefined' && module.exports) {
-        module.exports = Case;
-    } else {
-        this.Case = Case;
-    }
+    // export Case (AMD, commonjs, or window)
+    var define = window.define || function(){};
+    define((window.exports||window).Case = Case);
+
 }).call(this);
