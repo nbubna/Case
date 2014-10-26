@@ -1,4 +1,4 @@
-/*! Case - v1.1.1 - 2014-10-24
+/*! Case - v1.1.2 - 2014-10-25
 * Copyright (c) 2014 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
@@ -123,6 +123,6 @@
     }
     // export Case (AMD, commonjs, or global)
     var define = this.define || function(){};
-    define((this.exports||this).Case = Case);
+    define(module && module.exports ? module.exports = Case : this.Case = Case);
 
 }).call(this);
