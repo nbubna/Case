@@ -119,6 +119,10 @@
             return s;
         }
     };
+    
+    // Alias "squish" for the more correct and predictable "pascal"
+    // TODO: Remove "squish" in a future breaking release.
+    types.pascal = types.squish
 
     for (var type in types) {
         Case.type(type, types[type]);
