@@ -1,5 +1,5 @@
-/*! Case - v1.1.2 - 2014-10-25
-* Copyright (c) 2014 Nathan Bubna; Licensed MIT, GPL */
+/*! Case - v1.2.0 - 2015-01-27
+* Copyright (c) 2015 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
     var unicodes = function(s, prefix) {
@@ -17,7 +17,7 @@
         impropers = impropers || improperInTitle;
         return {
             capitalize: new RegExp('(^|['+symbols+'])(['+lowers+'])', 'g'),
-            squish: new RegExp('(^|['+symbols+'])+(['+lowers+uppers+'])', 'g'),
+            pascal: new RegExp('(^|['+symbols+'])+(['+lowers+uppers+'])', 'g'),
             fill: new RegExp('['+symbols+']+(.|$)','g'),
             sentence: new RegExp('(^\\s*|[\\?\\!\\.]+"?\\s+"?|,\\s+")(['+lowers+'])', 'g'),
             improper: new RegExp('\\b('+impropers+')\\b', 'g'),
@@ -46,7 +46,7 @@
                 return next ? fill + next : '';
             });
         },
-        prep: function(s, fill, squish, upper) {
+        prep: function(s, fill, pascal, upper) {
             if (!s){ return s || ''; }
             if (!upper && re.upper.test(s)) {
                 s = _.low.call(s);
@@ -54,7 +54,7 @@
             if (!fill && !re.hole.test(s)) {
                 s = _.fill(s, ' ');
             }
-            if (!squish && !re.room.test(s)) {
+            if (!pascal && !re.room.test(s)) {
                 s = s.replace(re.relax, _.relax);
             }
             return s;
@@ -83,7 +83,7 @@
     types = {
         snake: function(s){ return Case.lower(s, '_'); },
         constant: function(s){ return Case.upper(s, '_'); },
-        camel: function(s){ return _.decap(Case.squish(s)); },
+        camel: function(s){ return _.decap(Case.pascal(s)); },
         lower: function(s, fill) {
             return _.fill(_.low.call(_.prep(s, fill)), fill);
         },
@@ -95,8 +95,8 @@
                 return border+_.up.call(letter);
             }), fill);
         },
-        squish: function(s) {
-            return _.fill(_.prep(s, false, true).replace(re.squish, function(m, border, letter) {
+        pascal: function(s) {
+            return _.fill(_.prep(s, false, true).replace(re.pascal, function(m, border, letter) {
                 return _.up.call(letter);
             }), '');
         },
@@ -117,13 +117,16 @@
             return s;
         }
     };
+    
+    // TODO: Remove "squish" in a future breaking release.
+    types.squish = types.pascal;
 
     for (var type in types) {
         Case.type(type, types[type]);
     }
     // export Case (AMD, commonjs, or global)
     var define = this.define || function(){};
-    define(module && module.exports ? module.exports = Case : this.Case = Case);
+    define(this.module && module.exports ? module.exports = Case : this.Case = Case);
 
 }).call(this);
 

@@ -17,7 +17,7 @@ before applying the desired case to the given string.
 Case.upper('foo_bar')                       -> 'FOO BAR'
 Case.lower('fooBar')                        -> 'foo bar'
 Case.snake('Foo bar!')                      -> 'foo_bar'
-Case.squish('foo.bar')                      -> 'FooBar'
+Case.pascal('foo.bar')                      -> 'FooBar'
 Case.camel('foo, bar')                      -> 'fooBar'
 Case.constant('Foo-Bar')                    -> 'FOO_BAR'
 Case.title('foo v. bar')                    -> 'Foo v. Bar'
@@ -63,8 +63,10 @@ It's handy, sometimes. :)
 * 2013-06-20 v1.0.1 (regex improvements)
 * 2013-08-23 v1.0.3 (better support for Node, Component and AMD)
 * 2014-10-24 v1.1.2 (regexps used are now extensible and support more latin diacritics)
+* 2014-10-24 v1.2.0 (deprecate squish in favor of pascal)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
 [v1.0.3]: https://github.com/nbubna/store/tree/1.0.3
 [v1.1.2]: https://github.com/nbubna/store/tree/1.1.2
+[v1.2.0]: https://github.com/nbubna/store/tree/1.2.0

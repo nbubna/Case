@@ -10,12 +10,13 @@
     "lower",
     "snake",
     "squish",
+    "pascal",
     "constant",
     "flip",
     "capitalization",
     "converter"
   ],
-  "version": "1.1.2",
+  "version": "1.2.0",
   "author": {
     "name": "Nathan Bubna",
     "email": "nathan@esha.com",

@@ -1,6 +1,6 @@
 {
   "name": "Case",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "main": "dist/Case.js",
   "description": "Extensible string utility for converting, identifying and flipping string case",
   "keywords": [
@@ -12,6 +12,7 @@
     "lower",
     "snake",
     "squish",
+    "pascal",
     "constant",
     "flip",
     "capitalization",
