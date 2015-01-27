@@ -63,7 +63,7 @@ It's handy, sometimes. :)
 * 2013-06-20 v1.0.1 (regex improvements)
 * 2013-08-23 v1.0.3 (better support for Node, Component and AMD)
 * 2014-10-24 v1.1.2 (regexps used are now extensible and support more latin diacritics)
-* 2014-10-24 v1.2.0 (deprecate squish in favor of pascal)
+* 2015-01-27 v1.2.0 (deprecate squish in favor of pascal)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
