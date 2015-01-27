@@ -43,7 +43,7 @@ before applying the desired case to the given string.</p>
 <div class="highlight"><pre><span class="nx">Case</span><span class="p">.</span><span class="nx">upper</span><span class="p">(</span><span class="s1">'foo_bar'</span><span class="p">)</span>                       <span class="o">-&gt;</span> <span class="s1">'FOO BAR'</span>
 <span class="nx">Case</span><span class="p">.</span><span class="nx">lower</span><span class="p">(</span><span class="s1">'fooBar'</span><span class="p">)</span>                        <span class="o">-&gt;</span> <span class="s1">'foo bar'</span>
 <span class="nx">Case</span><span class="p">.</span><span class="nx">snake</span><span class="p">(</span><span class="s1">'Foo bar!'</span><span class="p">)</span>                      <span class="o">-&gt;</span> <span class="s1">'foo_bar'</span>
-<span class="nx">Case</span><span class="p">.</span><span class="nx">squish</span><span class="p">(</span><span class="s1">'foo.bar'</span><span class="p">)</span>                      <span class="o">-&gt;</span> <span class="s1">'FooBar'</span>
+<span class="nx">Case</span><span class="p">.</span><span class="nx">pascal</span><span class="p">(</span><span class="s1">'foo.bar'</span><span class="p">)</span>                      <span class="o">-&gt;</span> <span class="s1">'FooBar'</span>
 <span class="nx">Case</span><span class="p">.</span><span class="nx">camel</span><span class="p">(</span><span class="s1">'foo, bar'</span><span class="p">)</span>                      <span class="o">-&gt;</span> <span class="s1">'fooBar'</span>
 <span class="nx">Case</span><span class="p">.</span><span class="nx">constant</span><span class="p">(</span><span class="s1">'Foo-Bar'</span><span class="p">)</span>                    <span class="o">-&gt;</span> <span class="s1">'FOO_BAR'</span>
 <span class="nx">Case</span><span class="p">.</span><span class="nx">title</span><span class="p">(</span><span class="s1">'foo v. bar'</span><span class="p">)</span>                    <span class="o">-&gt;</span> <span class="s1">'Foo v. Bar'</span>
@@ -89,8 +89,12 @@ It's handy, sometimes. :)</p>
 <h2>
 <a name="release-history" class="anchor" href="#release-history"><span class="octicon octicon-link"></span></a>Release History</h2>
 
-<ul>
+<ul class="task-list">
 <li>2013-06-10 v1.0.0 (public, initial)</li>
+<li>2013-06-20 v1.0.1 (regex improvements)</li>
+<li>2013-08-23 v1.0.3 (better support for Node, Component and AMD)</li>
+<li>2014-10-24 v1.1.2 (regexps used are now extensible and support more latin diacritics)</li>
+<li>2015-01-27 v1.2.0 (deprecate Case.squish in favor of better-named Case.pascal)</li>
 </ul>
       </section>
       <footer>
