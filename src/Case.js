@@ -128,6 +128,6 @@
     }
     // export Case (AMD, commonjs, or global)
     var define = this.define || function(){};
-    define(module && module.exports ? module.exports = Case : this.Case = Case);
+    define(this.module && module.exports ? module.exports = Case : this.Case = Case);
 
 }).call(this);
