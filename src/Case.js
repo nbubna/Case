@@ -127,7 +127,7 @@
         Case.type(type, types[type]);
     }
     // export Case (AMD, commonjs, or global)
-    var define = this.define || function(){};
-    define(this.module && module.exports ? module.exports = Case : this.Case = Case);
+    var define = typeof define === "function" ? define : function(){};
+    define(typeof module === "object" && module.exports ? module.exports = Case : this.Case = Case);
 
 }).call(this);
