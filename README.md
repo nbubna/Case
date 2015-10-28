@@ -19,6 +19,7 @@ Case.lower('fooBar')                        -> 'foo bar'
 Case.snake('Foo bar!')                      -> 'foo_bar'
 Case.pascal('foo.bar')                      -> 'FooBar'
 Case.camel('foo, bar')                      -> 'fooBar'
+Case.kebab('Foo? Bar.')                     -> 'foo-bar'
 Case.constant('Foo-Bar')                    -> 'FOO_BAR'
 Case.title('foo v. bar')                    -> 'Foo v. Bar'
 Case.capital('foo_v_bar')                   -> 'Foo V Bar'
@@ -29,9 +30,10 @@ Case.sentence('"foo!" said bar', ['Bar'])   -> '"Foo!" said Bar'
 regardless of location in the sentence.  This function is specialized, but useful
 when dealing with input generated with capslock on (i.e. everything my grandma types).
 
-There are three additional functions:
+There are four additional functions:
 * `of(str)`: identifies the case of a string, returns undefined if it doesn't match a known type
 * `flip(str)`: reverses the case of letters, no other changes
+* `randome(str)`: randomizes the case of letters, no other changes
 * `type(name, fn)`: extends Case with a new case type
 
 ```javascript
@@ -42,6 +44,8 @@ Case.of('foo_ Bar')     -> undefined
 
 Case.flip('FlipMe')     -> 'fLIPmE'
 Case.flip('TEST THIS!') -> 'test this!'
+
+Case.random('Hello!')   -> 'hElLO!'
 
 Case.type('bang', function(s) {
     return Case.upper(s, '!')+'!';
@@ -65,6 +69,7 @@ It's handy, sometimes. :)
 * 2014-10-24 v1.1.2 (regexps used are now extensible and support more latin diacritics)
 * 2015-01-27 v1.2.0 (deprecate squish in favor of pascal)
 * 2015-01-28 v1.2.1 (fix UMD regression)
+* 2015-10-27 v1.3.0 (Case.kebab and Case.random)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
@@ -72,3 +77,4 @@ It's handy, sometimes. :)
 [v1.1.2]: https://github.com/nbubna/store/tree/1.1.2
 [v1.2.0]: https://github.com/nbubna/store/tree/1.2.0
 [v1.2.1]: https://github.com/nbubna/store/tree/1.2.1
+[v1.3.0]: https://github.com/nbubna/store/tree/1.3.0

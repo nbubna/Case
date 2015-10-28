@@ -1,4 +1,4 @@
-/*! Case - v1.2.1 - 2015-01-29
+/*! Case - v1.3.0 - 2015-10-27
 * Copyright (c) 2015 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
@@ -72,7 +72,12 @@
         },
         flip: function(s) {
             return s.replace(/\w/g, function(l) {
-                return l == _.up.call(l) ? _.low.call(l) : _.up.call(l);
+                return (l == _.up.call(l) ? _.low : _.up).call(l);
+            });
+        },
+        random: function(s) {
+            return s.replace(/\w/g, function(l) {
+                return (Math.round(Math.random()) ? _.up : _.low).call(l);
             });
         },
         type: function(type, fn) {
@@ -84,6 +89,7 @@
         snake: function(s){ return Case.lower(s, '_'); },
         constant: function(s){ return Case.upper(s, '_'); },
         camel: function(s){ return _.decap(Case.pascal(s)); },
+        kebab: function(s){ return Case.lower(s, '-'); },
         lower: function(s, fill) {
             return _.fill(_.low.call(_.prep(s, fill)), fill);
         },
