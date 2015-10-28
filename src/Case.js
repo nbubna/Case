@@ -74,7 +74,7 @@
         },
         flip: function(s) {
             return s.replace(/\w/g, function(l) {
-                return l == _.up.call(l) ? _.low.call(l) : _.up.call(l);
+                return (l == _.up.call(l) ? _.low : _.up).call(l);
             });
         },
         type: function(type, fn) {
