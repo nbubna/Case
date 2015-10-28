@@ -3,6 +3,7 @@
   var types = this.types = {
     camel: 'thisIsNiceAndTidyNathan',
     snake: 'this_is_nice_and_tidy_nathan',
+    kebab: 'this-is-nice-and-tidy-nathan',
     upper: 'THIS IS NICE AND TIDY, NATHAN.',
     lower: 'this is nice and tidy, nathan.',
     sentence: 'This is nice and tidy, nathan.',
