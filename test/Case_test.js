@@ -67,6 +67,18 @@
   flip('mixed', "Test This", "tEST tHIS");
   flip('junk', ".,?!_ ", ".,?!_ ");
 
+  module('random');
+  test('has random', function() {
+    equal(typeof Case.random, 'function', 'has random util function');
+    var string = 'The quick brown fox jumps over the lazy dog.',
+      r1 = Case.random(string),
+      r2 = Case.random(string);
+    notEqual(r1, r2, 'odds are very low that these will turn out equal');
+    equal(string.length, r1.length, 'should not change length');
+    equal(r1.charAt(r1.length - 1), '.', 'should still end in period');
+    equal(r2.charAt(r2.length - 1), '.', 'should still end in period');
+  });
+
   module('add type');
   test('add bang', function() {
     ok(!Case.bang, 'should not be Case.bang');

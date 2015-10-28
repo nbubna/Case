@@ -77,6 +77,11 @@
                 return (l == _.up.call(l) ? _.low : _.up).call(l);
             });
         },
+        random: function(s) {
+            return s.replace(/\w/g, function(l) {
+                return (Math.round(Math.random()) ? _.up : _.low).call(l);
+            });
+        },
         type: function(type, fn) {
             Case[type] = fn;
             _.types.push(type);
