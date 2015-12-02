@@ -109,9 +109,9 @@
             }), '');
         },
         title: function(s) {
-            return Case.capital(s).replace(re.improper, function(small) {
+            return _.cap(Case.capital(s).replace(re.improper, function(small) {
                 return _.low.call(small);
-            });
+            }));
         },
         sentence: function(s, names) {
             s = Case.lower(s).replace(re.sentence, function(m, prelude, letter) {
