@@ -33,7 +33,7 @@ when dealing with input generated with capslock on (i.e. everything my grandma t
 There are four additional functions:
 * `of(str)`: identifies the case of a string, returns undefined if it doesn't match a known type
 * `flip(str)`: reverses the case of letters, no other changes
-* `randome(str)`: randomizes the case of letters, no other changes
+* `random(str)`: randomizes the case of letters, no other changes
 * `type(name, fn)`: extends Case with a new case type
 
 ```javascript
