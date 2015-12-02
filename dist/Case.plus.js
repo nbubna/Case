@@ -1,4 +1,4 @@
-/*! Case - v1.3.0 - 2015-10-27
+/*! Case - v1.3.1 - 2015-12-02
 * Copyright (c) 2015 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
@@ -107,9 +107,9 @@
             }), '');
         },
         title: function(s) {
-            return Case.capital(s).replace(re.improper, function(small) {
+            return _.cap(Case.capital(s).replace(re.improper, function(small) {
                 return _.low.call(small);
-            });
+            }));
         },
         sentence: function(s, names) {
             s = Case.lower(s).replace(re.sentence, function(m, prelude, letter) {
