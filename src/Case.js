@@ -112,9 +112,9 @@
             }), '');
         },
         title: function(s) {
-            return _.cap(Case.capital(s).replace(re.improper, function(small) {
-                return _.low.call(small);
-            }));
+            return Case.capital(s).replace(re.improper, function(small, p, i, s) {
+                return i > 0 && i < s.lastIndexOf(' ') ? _.low.call(small) : small;
+            });
         },
         sentence: function(s, names) {
             s = Case.lower(s).replace(re.sentence, function(m, prelude, letter) {
