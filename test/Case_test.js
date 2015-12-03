@@ -104,9 +104,11 @@
     equal(Case.snake('SíDéRá'), 'sí_dé_rá');
   });
 
-  test('#13 - cap small words at start of title', function() {
+  test('#13 - cap small words at start and/or end of title', function() {
     equal(Case.title('and i love you!'), "And I Love You!");
-    equal(Case.title('an equal challenge'), "An Equal Challenge");
+    equal(Case.title('the challenge of'), "The Challenge Of");
+    equal(Case.title('FARTHER IN'), "Farther In");
+    equal(Case.title('and...'), "And...");
   });
 
 }());
