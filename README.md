@@ -71,7 +71,7 @@ It's handy, sometimes. :)
 * 2015-01-27 v1.2.0 (deprecate squish in favor of pascal)
 * 2015-01-28 v1.2.1 (fix UMD regression)
 * 2015-10-27 v1.3.0 (Case.kebab and Case.random)
-* 2015-12-02 v1.3.1 (fix title case when small word is first)
+* 2015-12-02 v1.3.2 (fix title case when small word is first or last)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
@@ -80,4 +80,4 @@ It's handy, sometimes. :)
 [v1.2.0]: https://github.com/nbubna/store/tree/1.2.0
 [v1.2.1]: https://github.com/nbubna/store/tree/1.2.1
 [v1.3.0]: https://github.com/nbubna/store/tree/1.3.0
-[v1.3.1]: https://github.com/nbubna/store/tree/1.3.1
+[v1.3.2]: https://github.com/nbubna/store/tree/1.3.2

@@ -1,4 +1,4 @@
-/*! Case - v1.3.1 - 2015-12-02
+/*! Case - v1.3.2 - 2015-12-02
 * Copyright (c) 2015 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
@@ -52,7 +52,10 @@
                 s = _.low.call(s);
             }
             if (!fill && !re.hole.test(s)) {
-                s = _.fill(s, ' ');
+                var holey = _.fill(s, ' ');
+                if (re.hole.test(holey)) {
+                    s = holey;
+                }
             }
             if (!pascal && !re.room.test(s)) {
                 s = s.replace(re.relax, _.relax);
@@ -107,9 +110,9 @@
             }), '');
         },
         title: function(s) {
-            return _.cap(Case.capital(s).replace(re.improper, function(small) {
-                return _.low.call(small);
-            }));
+            return Case.capital(s).replace(re.improper, function(small, p, i, s) {
+                return i > 0 && i < s.lastIndexOf(' ') ? _.low.call(small) : small;
+            });
         },
         sentence: function(s, names) {
             s = Case.lower(s).replace(re.sentence, function(m, prelude, letter) {
