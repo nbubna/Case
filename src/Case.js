@@ -54,7 +54,10 @@
                 s = _.low.call(s);
             }
             if (!fill && !re.hole.test(s)) {
-                s = _.fill(s, ' ');
+                var holey = _.fill(s, ' ');
+                if (re.hole.test(holey)) {
+                    s = holey;
+                }
             }
             if (!pascal && !re.room.test(s)) {
                 s = s.replace(re.relax, _.relax);
