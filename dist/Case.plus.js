@@ -1,5 +1,5 @@
-/*! Case - v1.3.2 - 2015-12-02
-* Copyright (c) 2015 Nathan Bubna; Licensed MIT, GPL */
+/*! Case - v1.3.3 - 2016-02-01
+* Copyright (c) 2016 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
     var unicodes = function(s, prefix) {
@@ -89,13 +89,13 @@
         }
     },
     types = {
+        lower: function(s, fill) {
+            return _.fill(_.low.call(_.prep(s, fill)), fill);
+        },
         snake: function(s){ return Case.lower(s, '_'); },
         constant: function(s){ return Case.upper(s, '_'); },
         camel: function(s){ return _.decap(Case.pascal(s)); },
         kebab: function(s){ return Case.lower(s, '-'); },
-        lower: function(s, fill) {
-            return _.fill(_.low.call(_.prep(s, fill)), fill);
-        },
         upper: function(s, fill) {
             return _.fill(_.up.call(_.prep(s, fill, false, true)), fill);
         },
