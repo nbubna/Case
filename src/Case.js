@@ -91,13 +91,13 @@
         }
     },
     types = {
+        lower: function(s, fill) {
+            return _.fill(_.low.call(_.prep(s, fill)), fill);
+        },
         snake: function(s){ return Case.lower(s, '_'); },
         constant: function(s){ return Case.upper(s, '_'); },
         camel: function(s){ return _.decap(Case.pascal(s)); },
         kebab: function(s){ return Case.lower(s, '-'); },
-        lower: function(s, fill) {
-            return _.fill(_.low.call(_.prep(s, fill)), fill);
-        },
         upper: function(s, fill) {
             return _.fill(_.up.call(_.prep(s, fill, false, true)), fill);
         },

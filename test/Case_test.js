@@ -111,4 +111,9 @@
     equal(Case.title('and...'), "And...");
   });
 
+  test('#14 - Case.of("foo") -> "snake"', function() {
+    equal(Case.of('foo'), 'lower');
+    equal(Case.of('foo_bar'), 'snake');
+  });
+
 }());
