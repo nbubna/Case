@@ -1,4 +1,4 @@
-/*! Case - v1.4.0 - 2016-02-07
+/*! Case - v1.4.1 - 2016-02-08
 * Copyright (c) 2016 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
@@ -23,7 +23,7 @@
             improper: new RegExp('\\b('+impropers+')\\b', 'g'),
             relax: new RegExp('([^'+uppers+'])(['+uppers+']*)(['+uppers+'])(?=['+lowers+']|$)', 'g'),
             upper: new RegExp('^[^'+lowers+']+$'),
-            hole: /\s/,
+            hole: /[^\s]\s[^\s]/,
             apostrophe: /'/g,
             room: new RegExp('['+symbols+']')
         };
