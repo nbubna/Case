@@ -25,7 +25,7 @@
             improper: new RegExp('\\b('+impropers+')\\b', 'g'),
             relax: new RegExp('([^'+uppers+'])(['+uppers+']*)(['+uppers+'])(?=['+lowers+']|$)', 'g'),
             upper: new RegExp('^[^'+lowers+']+$'),
-            hole: /\s/,
+            hole: /[^\s]\s[^\s]/,
             apostrophe: /'/g,
             room: new RegExp('['+symbols+']')
         };

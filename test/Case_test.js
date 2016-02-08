@@ -136,4 +136,16 @@
     // fill it? methinks, no...
   });
 
+  test('#16 - no holes in lone words', function() {
+    // keep prefix and/or suffix symbols for single words
+    equal(Case.title("-30"), "-30");
+    equal(Case.capital("STOP!"), "Stop!");
+    equal(Case.upper("'quote'"), "'QUOTE'");
+    equal(Case.lower('"Quotes"'), '"quotes"');
+
+    // except when it's a banned symbol
+    equal(Case.constant("-30"), "_30");
+    equal(Case.snake('STOP!'), "stop");
+  });
+
 }());
