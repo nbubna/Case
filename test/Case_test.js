@@ -116,4 +116,24 @@
     equal(Case.of('foo_bar'), 'snake');
   });
 
+  test('#15 - the apostrophe catastrophe"', function() {
+    var apostro = "we can't stop";
+    // keep it
+    equal(Case.capital("i'm"), "I'm");
+    equal(Case.capital(apostro), "We Can't Stop");
+    equal(Case.title(apostro), "We Can't Stop");
+    equal(Case.sentence(apostro), "We can't stop");
+    equal(Case.upper(apostro), "WE CAN'T STOP");
+    equal(Case.lower(apostro), apostro);
+
+    // ditch it
+    equal(Case.constant(apostro), "WE_CANT_STOP");
+    equal(Case.kebab(apostro), "we-cant-stop");
+    equal(Case.snake(apostro), "we_cant_stop");
+    equal(Case.camel(apostro), "weCantStop");
+    equal(Case.pascal(apostro), "WeCantStop");
+
+    // fill it? methinks, no...
+  });
+
 }());

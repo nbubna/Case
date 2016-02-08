@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 ESHA Research
+ * Copyright (c) 2016 ESHA Research
  * License under the MIT license.
  */
 (function() {
@@ -8,7 +8,7 @@
         prefix = prefix || '';
         return s.replace(/(^|-)/g, '$1\\u'+prefix).replace(/,/g, '\\u'+prefix);
     },
-    basicSymbols = unicodes('20-2F,3A-40,5B-60,7B-7E,A0-BF,D7,F7', '00'),
+    basicSymbols = unicodes('20-26,28-2F,3A-40,5B-60,7B-7E,A0-BF,D7,F7', '00'),
     baseLowerCase = 'a-z'+unicodes('DF-F6,F8-FF', '00'),
     baseUpperCase = 'A-Z'+unicodes('C0-D6,D8-DE', '00'),
     improperInTitle = 'A|An|And|As|At|But|By|En|For|If|In|Of|On|Or|The|To|Vs?\\.?|Via',
@@ -26,6 +26,7 @@
             relax: new RegExp('([^'+uppers+'])(['+uppers+']*)(['+uppers+'])(?=['+lowers+']|$)', 'g'),
             upper: new RegExp('^[^'+lowers+']+$'),
             hole: /\s/,
+            apostrophe: /'/g,
             room: new RegExp('['+symbols+']')
         };
     },
@@ -42,6 +43,9 @@
         },
         decap: function(s) {
             return _.low.call(s.charAt(0))+s.slice(1);
+        },
+        deapostrophe: function(s) {
+            return s.replace(re.apostrophe, '');
         },
         fill: function(s, fill) {
             return !s || fill == null ? s : s.replace(re.fill, function(m, next) {
@@ -94,10 +98,18 @@
         lower: function(s, fill) {
             return _.fill(_.low.call(_.prep(s, fill)), fill);
         },
-        snake: function(s){ return Case.lower(s, '_'); },
-        constant: function(s){ return Case.upper(s, '_'); },
-        camel: function(s){ return _.decap(Case.pascal(s)); },
-        kebab: function(s){ return Case.lower(s, '-'); },
+        snake: function(s) {
+            return _.deapostrophe(Case.lower(s, '_'));
+        },
+        constant: function(s) {
+            return _.deapostrophe(Case.upper(s, '_'));
+        },
+        camel: function(s ) {
+            return _.decap(Case.pascal(s));
+        },
+        kebab: function(s) {
+            return _.deapostrophe(Case.lower(s, '-'));
+        },
         upper: function(s, fill) {
             return _.fill(_.up.call(_.prep(s, fill, false, true)), fill);
         },
@@ -107,9 +119,9 @@
             }), fill);
         },
         pascal: function(s) {
-            return _.fill(_.prep(s, false, true).replace(re.pascal, function(m, border, letter) {
+            return _.deapostrophe(_.fill(_.prep(s, false, true).replace(re.pascal, function(m, border, letter) {
                 return _.up.call(letter);
-            }), '');
+            }), ''));
         },
         title: function(s) {
             return Case.capital(s).replace(re.improper, function(small, p, i, s) {
