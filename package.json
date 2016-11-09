@@ -26,7 +26,8 @@
     "node": ">= 0.8.0"
   },
   "files": [
-    "dist"
+    "dist",
+    "case.d.ts"
   ],
   "main": "dist/Case.js",
   "bugs": {
@@ -62,5 +63,6 @@
     "grunt-contrib-uglify": "^0.10.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-notify": "~0.2.4"
-  }
+  },
+  "typings": "case.d.ts"
 }
