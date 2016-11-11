@@ -1,4 +1,4 @@
-/*! Case - v1.4.1 - 2016-02-08
+/*! Case - v1.4.2 - 2016-11-11
 * Copyright (c) 2016 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";

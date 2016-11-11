@@ -75,6 +75,7 @@ It's handy, sometimes. :)
 * 2016-02-01 v1.3.3 (Case.of('foo') to return lower, not snake)
 * 2016-02-07 v1.4.0 (fix apostrophe handling)
 * 2016-02-08 v1.4.1 (fix swallowed prefix/suffix on lone words)
+* 2016-11-11 v1.4.2 (add typings for TypeScript support)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
@@ -87,3 +88,4 @@ It's handy, sometimes. :)
 [v1.3.3]: https://github.com/nbubna/store/tree/1.3.3
 [v1.4.0]: https://github.com/nbubna/store/tree/1.4.0
 [v1.4.1]: https://github.com/nbubna/store/tree/1.4.1
+[v1.4.2]: https://github.com/nbubna/store/tree/1.4.2
