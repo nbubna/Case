@@ -6,6 +6,7 @@
     kebab: 'this-is-nice-and-tidy-nathan',
     upper: 'THIS IS NICE AND TIDY, NATHAN.',
     lower: 'this is nice and tidy, nathan.',
+    header: 'This-Is-Nice-And-Tidy-Nathan',
     sentence: 'This is nice and tidy, nathan.',
     capital: 'This Is Nice And Tidy, Nathan.',
     title: 'This Is Nice and Tidy, Nathan.',

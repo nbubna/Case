@@ -21,13 +21,14 @@ Case.snake('Foo bar!')                      -> 'foo_bar'
 Case.pascal('foo.bar')                      -> 'FooBar'
 Case.camel('foo, bar')                      -> 'fooBar'
 Case.kebab('Foo? Bar.')                     -> 'foo-bar'
+Case.header('fooBar=')                      -> 'Foo-Bar'
 Case.constant('Foo-Bar')                    -> 'FOO_BAR'
 Case.title('foo v. bar')                    -> 'Foo v. Bar'
 Case.capital('foo_v_bar')                   -> 'Foo V Bar'
 Case.sentence('"foo!" said bar', ['Bar'])   -> '"Foo!" said Bar'
 Case.lower('FOO-BAR', '.')                  -> 'foo.bar'
 Case.upper('Foo? Bar.', '-')                -> 'FOO-BAR'
-Case.capital('fooBar', '-')                 -> 'Foo-Bar'
+Case.capital('fooBar', ' + ')               -> 'Foo + Bar'
 ```
 
 `sentence(str, names)` accepts an array of proper names that should be capitalized,

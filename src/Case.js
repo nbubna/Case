@@ -113,6 +113,9 @@
         kebab: function(s) {
             return Case.lower(s, '-', true);
         },
+        header: function(s) {
+            return Case.capital(s, '-', true);
+        },
         upper: function(s, fill, deapostrophe) {
             return _.fill(_.up.call(_.prep(s, fill, false, true)), fill, deapostrophe);
         },
