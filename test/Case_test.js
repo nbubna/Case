@@ -148,4 +148,18 @@
     equal(Case.snake('STOP!'), "stop");
   });
 
+  test('upper, lower, capital extra arguments', function() {
+    equal(Case.lower('FOO-BAR', '.'), 'foo.bar');
+    equal(Case.upper('Foo? Bar.', '-'), 'FOO-BAR');
+    equal(Case.capital("don'tSpeak", '-'), "Don't-Speak");
+
+    equal(Case.capital("don't speak", '-', true), 'Dont-Speak');
+    equal(Case.lower("DON'T KEEP 'EM", '__', true), "dont__keep__em");
+    equal(Case.upper("i'm not sure", "/", true), "IM/NOT/SURE");
+
+    equal(Case.upper("I, Barnabas, ain't happy!", null, true), "I, BARNABAS, AINT HAPPY!");
+    equal(Case.lower("I, Barnabas, ain't happy!", null, false), "i, barnabas, ain't happy!");
+    equal(Case.capital("I, Barnabas, ain't happy!", ' + ', true), "I + Barnabas + Aint + Happy");
+  });
+
 }());
