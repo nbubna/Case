@@ -25,11 +25,20 @@ Case.constant('Foo-Bar')                    -> 'FOO_BAR'
 Case.title('foo v. bar')                    -> 'Foo v. Bar'
 Case.capital('foo_v_bar')                   -> 'Foo V Bar'
 Case.sentence('"foo!" said bar', ['Bar'])   -> '"Foo!" said Bar'
+Case.lower('FOO-BAR', '.')                  -> 'foo.bar'
+Case.upper('Foo? Bar.', '-')                -> 'FOO-BAR'
+Case.capital('fooBar', '-')                 -> 'Foo-Bar'
 ```
 
 `sentence(str, names)` accepts an array of proper names that should be capitalized,
 regardless of location in the sentence.  This function is specialized, but useful
 when dealing with input generated with capslock on (i.e. everything my grandma types).
+
+`upper(str, fill)`, `lower(str, fill)`, and `capital(str, fill)` accept an optional "fill" value
+that will replace any characters which are not letters and numbers. All three also accept 
+a third optional boolean argument indicating if apostrophes are to be stripped out or left in.
+For example, programmatic case changes (snake, kebab, pascal, camel, constant) are best without
+apostrophes, but user-facing ones (title, sentence) do not want "don't" turned into "Dont".
 
 There are four additional functions:
 * `of(str)`: identifies the case of a string, returns undefined if it doesn't match a known type
@@ -56,11 +65,6 @@ Case.of('TEST!THIS!')   -> 'bang'
 ```
 
 Registering functions via `type()` means `Case.of` supports them automatically.
-
-Oh, did you notice that little `Case.upper(s, '!')`?
-Yeah, `upper()` and `lower()` accept a second "fill" argument
-that will replace any characters which are not letters or numbers.
-It's handy, sometimes. :)
 
 
 ## Release History
