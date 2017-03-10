@@ -1,13 +1,13 @@
 ### Case: An extensible utility to convert, identify, and flip string case.
 
-Download: [Case.min.js][min]  or  [Case.js][full]
-[![Build Status](https://travis-ci.org/nbubna/Case.png?branch=master)](https://travis-ci.org/nbubna/Case)
-[![npm version](https://badge.fury.io/js/case.svg)](https://badge.fury.io/js/store)
-[![npm](https://img.shields.io/npm/dm/case.svg?maxAge=2592000)]()   
+Download: [Case.min.js][min]  or  [Case.js][full]  
 Bower: `bower install Case`  (note the big 'C')  
 [NPM][npm]: `npm install case`  (little 'c' due to NPM restrictions)  
 [Component][component]: `component install nbubna/Case`  
 [NuGet][]: `Install-Package Case`  
+[![Build Status](https://travis-ci.org/nbubna/Case.png?branch=master)](https://travis-ci.org/nbubna/Case)
+[![npm version](https://badge.fury.io/js/case.svg)](https://badge.fury.io/js/store)
+[![npm](https://img.shields.io/npm/dm/case.svg?maxAge=2592000)]()  
 
 [NuGet]: http://nuget.org/packages/Case/
 [min]: https://raw.github.com/nbubna/Case/master/dist/Case.min.js
@@ -19,41 +19,55 @@ Bower: `bower install Case`  (note the big 'C')
 Each of the following functions will first "undo" previous case manipulations
 before applying the desired case to the given string.
 
+Foundations:
 ```javascript
 Case.upper('foo_bar')                       -> 'FOO BAR'
 Case.lower('fooBar')                        -> 'foo bar'
 Case.capital('foo_v_bar')                   -> 'Foo V Bar'
+```
 
+Code Helpers:
+```
 Case.snake('Foo bar!')                      -> 'foo_bar'
 Case.pascal('foo.bar')                      -> 'FooBar'
 Case.camel('foo, bar')                      -> 'fooBar'
 Case.kebab('Foo? Bar.')                     -> 'foo-bar'
 Case.header('fooBar=')                      -> 'Foo-Bar'
 Case.constant('Foo-Bar')                    -> 'FOO_BAR'
-
-Case.title('foo v. bar')                    -> 'Foo v. Bar'
-Case.sentence('"foo!" said bar', ['Bar'])   -> '"Foo!" said Bar'
-
-Case.lower('FOO-BAR', '.')                  -> 'foo.bar'
-Case.upper('Foo? Bar.', '-')                -> 'FOO-BAR'
-Case.capital('fooBar', ' + ')               -> 'Foo + Bar'
 ```
 
-`sentence(str, names)` accepts an array of proper names that should be capitalized,
+UI Helpers:
+```
+Case.title('foo v. bar')                    -> 'Foo v. Bar'
+Case.sentence('"foo!" said bar', ['Bar'])   -> '"Foo!" said Bar'
+```
+
+`Case.sentence(str, names)` accepts an array of proper names that should be capitalized,
 regardless of location in the sentence.  This function is specialized, but useful
 when dealing with input generated with capslock on (i.e. everything my grandma types).
 
-`upper(str, fill)`, `lower(str, fill)`, and `capital(str, fill)` accept an optional "fill" value
+
+Customizations:
+```
+Case.lower('FOO-BAR', '.')                  -> 'foo.bar'
+Case.upper('Foo? Bar.', '__')               -> 'FOO__BAR'
+Case.capital('fooBar', ' + ')               -> 'Foo + Bar'
+
+Case.lower("Don't keep 'em!", "/", true)    -> 'dont/keep/em'
+Case.capital("'ello, world.", null, true)   -> 'Ello, World.'
+```
+
+`Case.upper`, `Case.lower`, and `Case.capital` accept an optional "fill" value
 that will replace any characters which are not letters and numbers. All three also accept 
 a third optional boolean argument indicating if apostrophes are to be stripped out or left in.
 For example, programmatic case changes (snake, kebab, pascal, camel, constant) are best without
 apostrophes, but user-facing ones (title, sentence) do not want "don't" turned into "Dont".
 
 There are four additional functions:
-* `of(str)`: identifies the case of a string, returns undefined if it doesn't match a known type
-* `flip(str)`: reverses the case of letters, no other changes
-* `random(str)`: randomizes the case of letters, no other changes
-* `type(name, fn)`: extends Case with a new case type
+* `Case.of(str)`: identifies the case of a string, returns undefined if it doesn't match a known type
+* `Case.flip(str)`: reverses the case of letters, no other changes
+* `Case.random(str)`: randomizes the case of letters, no other changes
+* `Case.type(name, fn)`: extends Case with a new case type
 
 ```javascript
 Case.of('foo')          -> 'lower'
