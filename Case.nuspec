@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Case</id>
+    <title>Case (Javascript)</title>
+    <version>$version$</version>
+    <authors>Nathan Bubna</authors>
+    <owners>nbubna</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An extensible utility to convert, identify, and flip string case.</description>
+    <tags>case string typescript javascript snake constant header kebab flip sentence title camel pascal upper lower capital</tags>
+  </metadata>
+  <files>
+    <file src="dist/*.js" target="dist" />
+  </files>
+</package>

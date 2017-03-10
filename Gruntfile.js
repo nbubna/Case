@@ -83,6 +83,20 @@ module.exports = function(grunt) {
     jasmine: {
       all: 'src**/*.js',
       options: {}
+    },
+    nugetpack: {
+        dist: {
+            src: 'Case.nuspec',
+            dest: 'dist/',
+            options: {
+              version: '<%= pkg.version %>'
+            }
+        }
+    },
+    nugetpush: {
+        dist: {
+            src: 'dist/Case.<%= pkg.version %>.nupkg'
+        }
     }
   });
 
@@ -95,9 +109,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-notify');
+  grunt.loadNpmTasks('grunt-nuget');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'clean', 'concat', 'qunit', 'uglify']);
   grunt.registerTask('test', ['jasmine']);
+  grunt.registerTask('nuget', ['nugetpack', 'nugetpush']);
 
 };
