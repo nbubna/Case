@@ -1,15 +1,15 @@
 ### Case: An extensible utility to convert, identify, and flip string case.
 
 Download: [Case.min.js][min]  or  [Case.js][full]  
-Bower: `bower install Case`  (note the big 'C')  
 [NPM][npm]: `npm install case`  (little 'c' due to NPM restrictions)  
+Bower: `bower install Case`  (note the big 'C')  
 [Component][component]: `component install nbubna/Case`  
 [NuGet][]: `Install-Package Case`  
 
 
 [![Build Status](https://travis-ci.org/nbubna/Case.png?branch=master)](https://travis-ci.org/nbubna/Case)
 [![npm version](https://badge.fury.io/js/case.svg)](https://badge.fury.io/js/store)
-[![npm](https://img.shields.io/npm/dm/case.svg?maxAge=2592000)]()  
+[![npm](https://img.shields.io/npm/dm/case.svg?maxAge=2592000)](https://www.npmjs.com/package/case)  
 
 [NuGet]: http://nuget.org/packages/Case/
 [min]: https://raw.github.com/nbubna/Case/master/dist/Case.min.js
