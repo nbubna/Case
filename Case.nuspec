@@ -7,6 +7,8 @@
     <authors>Nathan Bubna</authors>
     <owners>nbubna</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>2017</copyright>
+    <projectUrl>https://github.com/nbubna/Case</projectUrl>
     <description>An extensible utility to convert, identify, and flip string case.</description>
     <tags>case string typescript javascript snake constant header kebab flip sentence title camel pascal upper lower capital</tags>
   </metadata>
