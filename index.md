@@ -1,4 +1,4 @@
-# Case: An extensible utility to convert, identify, and flip string case.
+## Case: An extensible utility to convert, identify, and flip string case.
 
 Download: [Case.min.js][min]  or  [Case.js][full]  
 Bower: `bower install Case`  (note the big 'C')  
