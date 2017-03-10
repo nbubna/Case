@@ -22,15 +22,18 @@ before applying the desired case to the given string.
 ```javascript
 Case.upper('foo_bar')                       -> 'FOO BAR'
 Case.lower('fooBar')                        -> 'foo bar'
+Case.capital('foo_v_bar')                   -> 'Foo V Bar'
+
 Case.snake('Foo bar!')                      -> 'foo_bar'
 Case.pascal('foo.bar')                      -> 'FooBar'
 Case.camel('foo, bar')                      -> 'fooBar'
 Case.kebab('Foo? Bar.')                     -> 'foo-bar'
 Case.header('fooBar=')                      -> 'Foo-Bar'
 Case.constant('Foo-Bar')                    -> 'FOO_BAR'
+
 Case.title('foo v. bar')                    -> 'Foo v. Bar'
-Case.capital('foo_v_bar')                   -> 'Foo V Bar'
 Case.sentence('"foo!" said bar', ['Bar'])   -> '"Foo!" said Bar'
+
 Case.lower('FOO-BAR', '.')                  -> 'foo.bar'
 Case.upper('Foo? Bar.', '-')                -> 'FOO-BAR'
 Case.capital('fooBar', ' + ')               -> 'Foo + Bar'
