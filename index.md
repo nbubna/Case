@@ -1,4 +1,4 @@
-### Case: An extensible utility to convert, identify, and flip string case.
+# Case: An extensible utility to convert, identify, and flip string case.
 
 Download: [Case.min.js][min]  or  [Case.js][full]  
 Bower: `bower install Case`  (note the big 'C')  
@@ -19,35 +19,35 @@ Bower: `bower install Case`  (note the big 'C')
 Each of the following functions will first "undo" previous case manipulations
 before applying the desired case to the given string.
 
-Foundations:
+### Foundations
 ```javascript
-Case.upper('foo_bar')                       -> 'FOO BAR'
-Case.lower('fooBar')                        -> 'foo bar'
-Case.capital('foo_v_bar')                   -> 'Foo V Bar'
+Case.upper('foo_bar')     -> 'FOO BAR'
+Case.lower('fooBar')      -> 'foo bar'
+Case.capital('foo_v_bar') -> 'Foo V Bar'
 ```
 
-Code Helpers:
+### Code Helpers
 ```
-Case.snake('Foo bar!')                      -> 'foo_bar'
-Case.pascal('foo.bar')                      -> 'FooBar'
-Case.camel('foo, bar')                      -> 'fooBar'
-Case.kebab('Foo? Bar.')                     -> 'foo-bar'
-Case.header('fooBar=')                      -> 'Foo-Bar'
-Case.constant('Foo-Bar')                    -> 'FOO_BAR'
+Case.snake('Foo bar!')   -> 'foo_bar'
+Case.pascal('foo.bar')   -> 'FooBar'
+Case.camel('foo, bar')   -> 'fooBar'
+Case.kebab('Foo? Bar.')  -> 'foo-bar'
+Case.header('fooBar=')   -> 'Foo-Bar'
+Case.constant('Foo-Bar') -> 'FOO_BAR'
 ```
 
-UI Helpers:
+
+### UI Helpers
 ```
 Case.title('foo v. bar')                    -> 'Foo v. Bar'
 Case.sentence('"foo!" said bar', ['Bar'])   -> '"Foo!" said Bar'
 ```
-
 `Case.sentence(str, names)` accepts an array of proper names that should be capitalized,
 regardless of location in the sentence.  This function is specialized, but useful
 when dealing with input generated with capslock on (i.e. everything my grandma types).
 
 
-Customizations:
+### Custom Casing
 ```
 Case.lower('FOO-BAR', '.')                  -> 'foo.bar'
 Case.upper('Foo? Bar.', '__')               -> 'FOO__BAR'
@@ -56,19 +56,25 @@ Case.capital('fooBar', ' + ')               -> 'Foo + Bar'
 Case.lower("Don't keep 'em!", "/", true)    -> 'dont/keep/em'
 Case.capital("'ello, world.", null, true)   -> 'Ello, World.'
 ```
-
 `Case.upper`, `Case.lower`, and `Case.capital` accept an optional "fill" value
 that will replace any characters which are not letters and numbers. All three also accept 
 a third optional boolean argument indicating if apostrophes are to be stripped out or left in.
 For example, programmatic case changes (snake, kebab, pascal, camel, constant) are best without
 apostrophes, but user-facing ones (title, sentence) do not want "don't" turned into "Dont".
 
-There are four additional functions:
-* `Case.of(str)`: identifies the case of a string, returns undefined if it doesn't match a known type
-* `Case.flip(str)`: reverses the case of letters, no other changes
-* `Case.random(str)`: randomizes the case of letters, no other changes
-* `Case.type(name, fn)`: extends Case with a new case type
 
+### Extending Case
+```
+Case.type('bang', function(s) {
+    return Case.upper(s, '!')+'!';
+});
+Case.bang('bang')       -> 'BANG!'
+Case.of('TEST!THIS!')   -> 'bang'
+```
+`Case.type(name, fn)`: extends Case, creating a new function on `Case` and adding `Case.of` support automatically.
+
+
+### Utilities
 ```javascript
 Case.of('foo')          -> 'lower'
 Case.of('foo_bar')      -> 'snake'
@@ -79,15 +85,10 @@ Case.flip('FlipMe')     -> 'fLIPmE'
 Case.flip('TEST THIS!') -> 'test this!'
 
 Case.random('Hello!')   -> 'hElLO!'
-
-Case.type('bang', function(s) {
-    return Case.upper(s, '!')+'!';
-});
-Case.bang('bang')       -> 'BANG!'
-Case.of('TEST!THIS!')   -> 'bang'
 ```
-
-Registering functions via `type()` creates a new function on `Case` and adds `Case.of` support automatically.
+* `Case.of(str)`: identifies the case of a string, returns undefined if it doesn't match a known type
+* `Case.flip(str)`: reverses the case of letters, no other changes
+* `Case.random(str)`: randomizes the case of letters, no other changes
 
 
 ## Release History
