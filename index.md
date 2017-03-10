@@ -27,7 +27,7 @@ Case.capital('foo_v_bar') -> 'Foo V Bar'
 ```
 
 ### Code Helpers
-```
+```javascript
 Case.snake('Foo bar!')   -> 'foo_bar'
 Case.pascal('foo.bar')   -> 'FooBar'
 Case.camel('foo, bar')   -> 'fooBar'
@@ -38,7 +38,7 @@ Case.constant('Foo-Bar') -> 'FOO_BAR'
 
 
 ### UI Helpers
-```
+```javascript
 Case.title('foo v. bar')                    -> 'Foo v. Bar'
 Case.sentence('"foo!" said bar', ['Bar'])   -> '"Foo!" said Bar'
 ```
@@ -48,7 +48,7 @@ when dealing with input generated with capslock on (i.e. everything my grandma t
 
 
 ### Custom Casing
-```
+```javascript
 Case.lower('FOO-BAR', '.')                  -> 'foo.bar'
 Case.upper('Foo? Bar.', '__')               -> 'FOO__BAR'
 Case.capital('fooBar', ' + ')               -> 'Foo + Bar'
@@ -64,7 +64,7 @@ apostrophes, but user-facing ones (title, sentence) do not want "don't" turned i
 
 
 ### Extending Case
-```
+```javascript
 Case.type('bang', function(s) {
     return Case.upper(s, '!')+'!';
 });
