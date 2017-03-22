@@ -48,15 +48,18 @@
             return s.replace(re.apostrophe, '');
         },
         fill: function(s, fill, deapostrophe) {
-            if (s) {
-                s = fill == null ? s : s.replace(re.fill, function(m, next) {
+            if (fill != null) {
+                s = s.replace(re.fill, function(m, next) {
                     return next ? fill + next : '';
                 });
-                return deapostrophe ? _.deapostrophe(s) : s;
             }
+            if (deapostrophe) {
+                s = _.deapostrophe(s);
+            }
+            return s;
         },
         prep: function(s, fill, pascal, upper) {
-            if (!s){ return s || ''; }
+            s = s == null ? '' : s + '';// force to string
             if (!upper && re.upper.test(s)) {
                 s = _.low.call(s);
             }

@@ -163,4 +163,25 @@
     equal(Case.capital("I, Barnabas, ain't happy!", ' + ', true), "I + Barnabas + Aint + Happy");
   });
 
+
+  test('#20 - empty string to sentence function causes error', function() {
+    equal(Case.lower(''), '');
+    equal(Case.upper(''), '');
+    equal(Case.capital(''), '');
+    equal(Case.pascal(''), '');
+    equal(Case.sentence(''), '');
+  });
+
+  test('outliers', function() {
+    equal(Case.lower(undefined), '', "empty should be empty string");
+    equal(Case.sentence(null), '', "empty should be empty string");
+    equal(Case.capital(false), 'False');
+    equal(Case.upper(true), 'TRUE');
+    equal(Case.pascal({}), 'ObjectObject', "should strip brackets and space from ugly default toString");
+    equal(Case.snake([]), '', "javascript is weird, but []+''=''");
+    equal(Case.constant(0), '0');
+    var date = Date.now().toString();
+    equal(Case.title({toString:function(){ return date;}}), date, "should not use Object.prototype.toString");
+  });
+
 }());
