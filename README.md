@@ -106,7 +106,7 @@ Case.random('Hello!')   -> 'hElLO!'
 * 2016-02-07 [v1.4.0][] (fix apostrophe handling)
 * 2016-02-08 [v1.4.1][] (fix swallowed prefix/suffix on lone words)
 * 2016-11-11 [v1.4.2][] (add typings for TypeScript support)
-* 2017-03-09 [v1.5.0][] (add Header-Case and expose noApostrophes option for upper/lower/capital fns)
+* 2017-03-09 [v1.5.2][] (add Header-Case and expose noApostrophes option for upper/lower/capital fns)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
@@ -120,4 +120,4 @@ Case.random('Hello!')   -> 'hElLO!'
 [v1.4.0]: https://github.com/nbubna/store/tree/1.4.0
 [v1.4.1]: https://github.com/nbubna/store/tree/1.4.1
 [v1.4.2]: https://github.com/nbubna/store/tree/1.4.2
-[v1.5.0]: https://github.com/nbubna/store/tree/1.5.0
+[v1.5.2]: https://github.com/nbubna/store/tree/1.5.2
