@@ -156,8 +156,14 @@
     for (var type in types) {
         Case.type(type, types[type]);
     }
+
     // export Case (AMD, commonjs, or global)
     var define = typeof define === "function" ? define : function(){};
     define(typeof module === "object" && module.exports ? module.exports = Case : this.Case = Case);
+
+    // exporting for Node.js
+    if (module && module.exports) {
+        module.exports = Case;
+    }
 
 }).call(this);
