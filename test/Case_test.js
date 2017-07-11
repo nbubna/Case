@@ -7,18 +7,20 @@
     upper: 'THIS IS NICE AND TIDY, NATHAN.',
     lower: 'this is nice and tidy, nathan.',
     header: 'This-Is-Nice-And-Tidy-Nathan',
-    sentence: 'This is nice and tidy, nathan.',
+    sentence: 'This is nice and tidy, Nathan.',
     capital: 'This Is Nice And Tidy, Nathan.',
     title: 'This Is Nice and Tidy, Nathan.',
     constant: 'THIS_IS_NICE_AND_TIDY_NATHAN'
   },
+  properNames = ['Nathan'],
   _ = Case._;
 
   function convert(a, b) {
     test(a+' to '+b, function() {
       expect(2);
-      var direct = Case[b](types[a]),
-          viaTo = types[a]['to'+_.cap(b)+'Case'](),
+      var arg = b === "sentence" ? properNames : undefined,
+          direct = Case[b](types[a], arg),
+          viaTo = types[a]['to'+_.cap(b)+'Case'](arg),
           lossy = direct.length < types[b].length,
           expected = lossy ? types[b].replace(/[^\w ]/g,'') : types[b];
       strictEqual(direct, expected);
@@ -29,7 +31,7 @@
   function identify(a) {
     test('identify '+a, function() {
       expect(1);
-      var actual = Case.of(types[a]);
+      var actual = Case.of(types[a], a === "sentence" ? properNames : undefined);
       strictEqual(actual, a);
     });
   }
@@ -170,6 +172,10 @@
     equal(Case.capital(''), '');
     equal(Case.pascal(''), '');
     equal(Case.sentence(''), '');
+  });
+
+  test('#22 - Case.of should support specifying proper names', function() {
+    equal(Case.of("Hello, Sue, how is Bob?", ['Sue', 'Bob']), "sentence");
   });
 
   test('outliers', function() {

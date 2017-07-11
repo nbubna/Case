@@ -80,9 +80,9 @@
     },
     Case = {
         _: _,
-        of: function(s) {
+        of: function(s, arg2) {
             for (var i=0,m=_.types.length; i<m; i++) {
-                if (Case[_.types[i]](s) === s){ return _.types[i]; }
+                if (Case[_.types[i]](s, arg2) === s){ return _.types[i]; }
             }
         },
         flip: function(s) {
@@ -149,7 +149,7 @@
             return s;
         }
     };
-    
+
     // TODO: Remove "squish" in a future breaking release.
     types.squish = types.pascal;
 

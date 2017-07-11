@@ -8,8 +8,8 @@
 (function(Case, _) {
     function create(type) {
         var fn = 'to'+_.cap(type)+'Case';
-        String.prototype[fn] = function() {
-            return Case[type](this);
+        String.prototype[fn] = function(arg) {
+            return Case[type](this, arg);
         };
     }
     for (var i=0,m=_.types.length; i<m; i++) {
