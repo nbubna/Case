@@ -83,12 +83,14 @@ Case.of('foo_bar')      -> 'snake'
 Case.of('Foo v Bar')    -> 'title'
 Case.of('foo_ Bar')     -> undefined
 
+Case.of('Hello there, Bob!', ['Bob']) -> 'sentence'
+
 Case.flip('FlipMe')     -> 'fLIPmE'
 Case.flip('TEST THIS!') -> 'test this!'
 
 Case.random('Hello!')   -> 'hElLO!'
 ```
-* `Case.of(str)`: identifies the case of a string, returns undefined if it doesn't match a known type
+* `Case.of(str[, names])`: identifies the case of a string, returns undefined if it doesn't match a known type
 * `Case.flip(str)`: reverses the case of letters, no other changes
 * `Case.random(str)`: randomizes the case of letters, no other changes
 
@@ -107,6 +109,7 @@ Case.random('Hello!')   -> 'hElLO!'
 * 2016-02-08 [v1.4.1][] (fix swallowed prefix/suffix on lone words)
 * 2016-11-11 [v1.4.2][] (add typings for TypeScript support)
 * 2017-03-09 [v1.5.2][] (add Header-Case and expose noApostrophes option for upper/lower/capital fns)
+* 2017-07-11 [v1.5.3][] (Case.of and to[Type]Case functions should accept extra arguments, like the rest)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
@@ -121,3 +124,4 @@ Case.random('Hello!')   -> 'hElLO!'
 [v1.4.1]: https://github.com/nbubna/store/tree/1.4.1
 [v1.4.2]: https://github.com/nbubna/store/tree/1.4.2
 [v1.5.2]: https://github.com/nbubna/store/tree/1.5.2
+[v1.5.3]: https://github.com/nbubna/store/tree/1.5.3

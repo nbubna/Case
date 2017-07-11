@@ -1,4 +1,4 @@
-/*! Case - v1.5.2 - 2017-03-27
+/*! Case - v1.5.3 - 2017-07-11
 * Copyright (c) 2017 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
@@ -80,7 +80,7 @@
         _: _,
         of: function(s) {
             for (var i=0,m=_.types.length; i<m; i++) {
-                if (Case[_.types[i]](s) === s){ return _.types[i]; }
+                if (Case[_.types[i]].apply(Case, arguments) === s){ return _.types[i]; }
             }
         },
         flip: function(s) {
@@ -147,7 +147,7 @@
             return s;
         }
     };
-    
+
     // TODO: Remove "squish" in a future breaking release.
     types.squish = types.pascal;
 
@@ -164,7 +164,8 @@
     function create(type) {
         var fn = 'to'+_.cap(type)+'Case';
         String.prototype[fn] = function() {
-            return Case[type](this);
+            Array.prototype.unshift.call(arguments, this);
+            return Case[type].apply(Case, arguments);
         };
     }
     for (var i=0,m=_.types.length; i<m; i++) {

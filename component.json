@@ -2,7 +2,7 @@
   "name": "Case",
   "repo": "nbubna/Case",
   "description": "Extensible string utility for converting, identifying and flipping string case",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "keywords": [
     "string",
     "case",
