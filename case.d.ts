@@ -30,6 +30,7 @@ declare module 'case' {
     function sentence(str: string, names: Array<string>) : string;
 
     function of(str: string) : string;
+    function of(str: string, names: Array<string>) : string;
 
     function flip(str: string) : string
 
