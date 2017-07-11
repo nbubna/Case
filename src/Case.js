@@ -80,9 +80,9 @@
     },
     Case = {
         _: _,
-        of: function(s, arg2) {
+        of: function(s) {
             for (var i=0,m=_.types.length; i<m; i++) {
-                if (Case[_.types[i]](s, arg2) === s){ return _.types[i]; }
+                if (Case[_.types[i]].apply(Case, arguments) === s){ return _.types[i]; }
             }
         },
         flip: function(s) {
