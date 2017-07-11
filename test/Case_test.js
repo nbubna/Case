@@ -174,8 +174,13 @@
     equal(Case.sentence(''), '');
   });
 
-  test('#22 - Case.of should support specifying proper names', function() {
+  test('#22 - extra args to Case.of and to[Type]Case', function() {
+    // make sure Case.of can handle names in sentence case
     equal(Case.of("Hello, Sue, how is Bob?", ['Sue', 'Bob']), "sentence");
+    // a fill argument
+    equal("best_case_ever".toCapitalCase(". "), "Best. Case. Ever");
+    // fill and noApostrophes both
+    equal("i'm not sure".toUpperCase("/", true), "IM/NOT/SURE");
   });
 
   test('outliers', function() {
