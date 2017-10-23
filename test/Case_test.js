@@ -195,4 +195,9 @@
     equal(Case.title({toString:function(){ return date;}}), date, "should not use Object.prototype.toString");
   });
 
+  test('Case.of priorities', function() {
+    equal(Case.of('Bread'), 'capital');
+    equal(Case.of('Content-Type'), 'header');
+  });
+
 }());
