@@ -110,6 +110,7 @@ Case.random('Hello!')   -> 'hElLO!'
 * 2016-11-11 [v1.4.2][] (add typings for TypeScript support)
 * 2017-03-09 [v1.5.2][] (add Header-Case and expose noApostrophes option for upper/lower/capital fns)
 * 2017-07-11 [v1.5.3][] (Case.of and to[Type]Case functions should accept extra arguments, like the rest)
+* 2017-10-23 [v1.5.4][] (Shift order of Case.of tests to prioritize 'capital' over 'header')
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
@@ -125,3 +126,4 @@ Case.random('Hello!')   -> 'hElLO!'
 [v1.4.2]: https://github.com/nbubna/store/tree/1.4.2
 [v1.5.2]: https://github.com/nbubna/store/tree/1.5.2
 [v1.5.3]: https://github.com/nbubna/store/tree/1.5.3
+[v1.5.4]: https://github.com/nbubna/store/tree/1.5.4
