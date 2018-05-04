@@ -1,5 +1,5 @@
-/*! Case - v1.5.4 - 2017-10-23
-* Copyright (c) 2017 Nathan Bubna; Licensed MIT, GPL */
+/*! Case - v1.5.5 - 2018-05-04
+* Copyright (c) 2018 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
     var unicodes = function(s, prefix) {
@@ -21,7 +21,7 @@
             fill: new RegExp('['+symbols+']+(.|$)','g'),
             sentence: new RegExp('(^\\s*|[\\?\\!\\.]+"?\\s+"?|,\\s+")(['+lowers+'])', 'g'),
             improper: new RegExp('\\b('+impropers+')\\b', 'g'),
-            relax: new RegExp('([^'+uppers+'])(['+uppers+']*)(['+uppers+'])(?=['+lowers+']|$)', 'g'),
+            relax: new RegExp('([^'+uppers+'])(['+uppers+']*)(['+uppers+'])(?=[^'+uppers+']|$)', 'g'),
             upper: new RegExp('^[^'+lowers+']+$'),
             hole: /[^\s]\s[^\s]/,
             apostrophe: /'/g,
