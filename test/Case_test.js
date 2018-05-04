@@ -200,4 +200,16 @@
     equal(Case.of('Content-Type'), 'header');
   });
 
+  test('#26 - constant issue', function() {
+    var re = Case._.re;
+    equal(Case.of('hardOne'), 'camel', 'should identify as camel');
+    equal('hardOne'.replace(re.relax, Case._.relax), 'hard One', 'should put space before One');
+    equal('thisIsHard'.replace(re.relax, Case._.relax), 'this Is Hard', 'should put space before words');
+    equal(Case._.prep('hardOne', '_', false, true), 'hard One', 'should get a space before P');
+    equal(Case.constant('hardOne'), 'HARD_ONE', 'constant!');
+    //TODO: get this working
+    //equal(Case.constant('useHTTP2'), 'USE_HTTP2');
+    equal('thisIsAPunk'.replace(re.relax, Case._.relax), 'this Is A Punk', 'should put space before words');
+  });
+
 }());

@@ -23,7 +23,7 @@
             fill: new RegExp('['+symbols+']+(.|$)','g'),
             sentence: new RegExp('(^\\s*|[\\?\\!\\.]+"?\\s+"?|,\\s+")(['+lowers+'])', 'g'),
             improper: new RegExp('\\b('+impropers+')\\b', 'g'),
-            relax: new RegExp('([^'+uppers+'])(['+uppers+']*)(['+uppers+'])(?=['+lowers+']|$)', 'g'),
+            relax: new RegExp('([^'+uppers+'])(['+uppers+']*)(['+uppers+'])(?=[^'+uppers+']|$)', 'g'),
             upper: new RegExp('^[^'+lowers+']+$'),
             hole: /[^\s]\s[^\s]/,
             apostrophe: /'/g,
