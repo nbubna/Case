@@ -137,13 +137,20 @@
                 return i > 0 && i < s.lastIndexOf(' ') ? _.low.call(small) : small;
             });
         },
-        sentence: function(s, names) {
+        sentence: function(s, names, whitelistedHardStops) {
             s = Case.lower(s).replace(re.sentence, function(m, prelude, letter) {
                 return prelude + _.up.call(letter);
             });
             if (names) {
                 names.forEach(function(name) {
                     s = s.replace(new RegExp('\\b'+Case.lower(name)+'\\b', "g"), _.cap);
+                });
+            }
+            if (whitelistedHardStops) {
+                whitelistedHardStops.forEach(function (word) {
+                    s = s.replace(new RegExp('\\b' + Case.lower(word) + '\\. +(\\w)'), function (fullMatch, firstLetterOfNext) {
+                        return fullMatch.replace(/.$/, _.low.call(firstLetterOfNext));
+                    });
                 });
             }
             return s;
