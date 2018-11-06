@@ -65,6 +65,11 @@
     strictEqual(output, 'He walked in. "Hi," he said! She replied, "Yes?" "Oh, nevermind."');
   });
 
+  test('whitelisted period words', function() {
+    var output = Case.sentence('the 12 oz. drink was cold', null, ["oz"]);
+    strictEqual(output, 'The 12 oz. drink was cold');
+  });
+
   module('flip');
   flip('low/high', 'TEST THIS', 'test this');
   flip('mixed', "Test This", "tEST tHIS");
