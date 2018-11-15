@@ -115,6 +115,7 @@ Case.random('Hello!')   -> 'hElLO!'
 * 2017-07-11 [v1.5.3][] (Case.of and to[Type]Case functions should accept extra arguments, like the rest)
 * 2017-10-23 [v1.5.4][] (Shift order of Case.of tests to prioritize 'capital' over 'header')
 * 2018-05-04 [v1.5.5][] (Fix issue #26, corner case of bad "decamelizing" of string w/number after caps)
+* 2018-11-15 [v1.6.0][] (PR #29, support 'abbreviations' argument for Case.sentence to avoid incorrect sentence ends)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
@@ -132,3 +133,4 @@ Case.random('Hello!')   -> 'hElLO!'
 [v1.5.3]: https://github.com/nbubna/store/tree/1.5.3
 [v1.5.4]: https://github.com/nbubna/store/tree/1.5.4
 [v1.5.5]: https://github.com/nbubna/store/tree/1.5.5
+[v1.6.0]: https://github.com/nbubna/store/tree/1.6.0

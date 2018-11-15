@@ -1,6 +1,6 @@
 {
   "name": "Case",
-  "version": "1.5.5",
+  "version": "1.6.0",
   "main": "dist/Case.js",
   "description": "Extensible string utility for converting, identifying and flipping string case",
   "keywords": [
