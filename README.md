@@ -43,15 +43,13 @@ Case.constant('Foo-Bar') -> 'FOO_BAR'
 ```javascript
 Case.title('foo v. bar')                    -> 'Foo v. Bar'
 Case.sentence('"foo!" said bar', ['Bar'])   -> '"Foo!" said Bar'
-Case.sentence('the 12 oz. can', null, ['oz'])   -> 'The 12 oz can'
+Case.sentence('the 12 oz. can', null, ['oz'])   -> 'The 12 oz. can'
 ```
-`Case.sentence(str, names, whitelistedHardStops)` accepts an array of proper names that should be capitalized,
-regardless of location in the sentence.  This function is specialized, but useful
+`Case.sentence(str, names, abbreviations)` accepts an array of proper names that should be capitalized,
+regardless of location in the sentence. This function is specialized, but useful
 when dealing with input generated with capslock on (i.e. everything my grandma types).
-It also accepts whitelistedHardStops which are words that end in a period but are not
-meant to segment sentences.
-
-`C
+It can also accept a list of abbreviations (words that may end in a period but aren't meant
+to end a sentence).
 
 
 ### Custom Casing
