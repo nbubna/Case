@@ -64,8 +64,7 @@
     var output = Case.sentence('he walked in. "hi," he said! she replied, "yes?" "oh, nevermind."');
     strictEqual(output, 'He walked in. "Hi," he said! She replied, "Yes?" "Oh, nevermind."');
   });
-
-  test('whitelisted period words', function() {
+  test('with abbreviations', function() {
     var output = Case.sentence('the 12 oz. drink was cold', null, ["oz"]);
     strictEqual(output, 'The 12 oz. drink was cold');
   });
