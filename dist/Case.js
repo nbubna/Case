@@ -1,5 +1,5 @@
-/*! Case - v1.6.0 - 2018-11-15
-* Copyright (c) 2018 Nathan Bubna; Licensed MIT, GPL */
+/*! Case - v1.6.1 - 2019-01-11
+* Copyright (c) 2019 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
     var unicodes = function(s, prefix) {
