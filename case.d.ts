@@ -27,7 +27,7 @@ declare module 'case' {
 
     function title(str: string) : string;
 
-    function sentence(str: string, names: Array<string>) : string;
+    function sentence(str: string, names?: Array<string> | null, abbreviations?: Array<string>) : string;
 
     function of(str: string) : string;
     function of(str: string, names: Array<string>) : string;
