@@ -159,6 +159,9 @@
 
     // TODO: Remove "squish" in a future breaking release.
     types.squish = types.pascal;
+    
+    // Allow import default
+    Case.default = Case;
 
     for (var type in types) {
         Case.type(type, types[type]);
