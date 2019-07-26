@@ -2,8 +2,6 @@
 
 Download: [Case.min.js][min]  or  [Case.js][full]  
 [NPM][npm]: `npm install case`  (little 'c' due to NPM restrictions)  
-Bower: `bower install Case`  (note the big 'C')  
-[Component][component]: `component install nbubna/Case`  
 [NuGet][]: `Install-Package Case`  
 
 
@@ -15,7 +13,6 @@ Bower: `bower install Case`  (note the big 'C')
 [min]: https://raw.github.com/nbubna/Case/master/dist/Case.min.js
 [full]: https://raw.github.com/nbubna/Case/master/dist/Case.js
 [npm]: https://npmjs.org/package/case
-[component]: https://github.com/componentjs/guide
 
 ## Documentation
 Each of the following functions will first "undo" previous case manipulations
