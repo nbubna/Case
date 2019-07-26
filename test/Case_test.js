@@ -211,6 +211,7 @@
     equal('thisIsHard'.replace(re.relax, Case._.relax), 'this Is Hard', 'should put space before words');
     equal(Case._.prep('hardOne', '_', false, true), 'hard One', 'should get a space before P');
     equal(Case.constant('hardOne'), 'HARD_ONE', 'constant!');
+    equal(Case.constant('crapP4'), 'CRAP_P4', 'w/number');
     //TODO: get this working
     //equal(Case.constant('useHTTP2'), 'USE_HTTP2');
     equal('thisIsAPunk'.replace(re.relax, Case._.relax), 'this Is A Punk', 'should put space before words');
