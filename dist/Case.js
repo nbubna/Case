@@ -1,4 +1,4 @@
-/*! Case - v1.6.1 - 2019-01-11
+/*! Case - v1.6.2 - 2019-07-26
 * Copyright (c) 2019 Nathan Bubna; Licensed MIT, GPL */
 (function() {
     "use strict";
@@ -157,6 +157,9 @@
 
     // TODO: Remove "squish" in a future breaking release.
     types.squish = types.pascal;
+    
+    // Allow import default
+    Case.default = Case;
 
     for (var type in types) {
         Case.type(type, types[type]);

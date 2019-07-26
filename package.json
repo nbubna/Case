@@ -16,7 +16,7 @@
     "capitalization",
     "converter"
   ],
-  "version": "1.6.1",
+  "version": "1.6.2",
   "author": {
     "name": "Nathan Bubna",
     "email": "nathan@esha.com",
@@ -57,12 +57,10 @@
     "grunt-component-build": "^0.5.3",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-jasmine": "^2.0.3",
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-contrib-qunit": "^3.1.0",
     "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-notify": "^0.4.5",
     "grunt-nuget": "~0.3.1"
   },
   "typings": "case.d.ts"

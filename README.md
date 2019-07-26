@@ -114,6 +114,7 @@ Case.random('Hello!')   -> 'hElLO!'
 * 2018-05-04 [v1.5.5][] (Fix issue #26, corner case of bad "decamelizing" of string w/number after caps)
 * 2018-11-15 [v1.6.0][] (PR #29, support 'abbreviations' argument for Case.sentence to avoid incorrect sentence ends)
 * 2019-01-11 [v1.6.1][] (PR #30, update typings to include 'abbreviations' argument for Case.sentence)
+* 2019-07-26 [v1.6.2][] (PR #31, allow importing as default)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
@@ -133,3 +134,4 @@ Case.random('Hello!')   -> 'hElLO!'
 [v1.5.5]: https://github.com/nbubna/store/tree/1.5.5
 [v1.6.0]: https://github.com/nbubna/store/tree/1.6.0
 [v1.6.1]: https://github.com/nbubna/store/tree/1.6.1
+[v1.6.2]: https://github.com/nbubna/store/tree/1.6.2
