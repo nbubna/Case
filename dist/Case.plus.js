@@ -1,5 +1,5 @@
-/*! Case - v1.6.2 - 2020-03-24
-* Copyright (c) 2020 Nathan Bubna; Licensed MIT, GPL */
+/*! case - v1.6.3 - 2020-03-24
+* Copyright (c) 2020 Nathan Bubna; Licensed (MIT OR GPL-3.0-or-later) */
 (function() {
     "use strict";
     var unicodes = function(s, prefix) {
