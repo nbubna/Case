@@ -115,6 +115,7 @@ Case.random('Hello!')   -> 'hElLO!'
 * 2018-11-15 [v1.6.0][] (PR #29, support 'abbreviations' argument for Case.sentence to avoid incorrect sentence ends)
 * 2019-01-11 [v1.6.1][] (PR #30, update typings to include 'abbreviations' argument for Case.sentence)
 * 2019-07-26 [v1.6.2][] (PR #31, allow importing as default)
+* 2020-03-24 [v1.6.3][] (PR #33, update license structure in package.json for automated checkers)
 
 [v1.0.0]: https://github.com/nbubna/store/tree/1.0.0
 [v1.0.1]: https://github.com/nbubna/store/tree/1.0.1
@@ -135,3 +136,4 @@ Case.random('Hello!')   -> 'hElLO!'
 [v1.6.0]: https://github.com/nbubna/store/tree/1.6.0
 [v1.6.1]: https://github.com/nbubna/store/tree/1.6.1
 [v1.6.2]: https://github.com/nbubna/store/tree/1.6.2
+[v1.6.3]: https://github.com/nbubna/store/tree/1.6.3
