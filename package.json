@@ -38,16 +38,7 @@
     "type": "git",
     "url": "http://github.com/nbubna/Case.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/mit-license.php"
-    },
-    {
-      "type": "GPL",
-      "url": "http://www.gnu.org/licenses/gpl.html"
-    }
-  ],
+  "license": "(MIT OR GPL-3.0-or-later)",
   "scripts": {
     "test": "grunt qunit"
   },
