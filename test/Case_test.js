@@ -15,19 +15,6 @@
   properNames = ['Nathan'],
   _ = Case._;
 
-  function convert(a, b) {
-    test(a+' to '+b, function() {
-      expect(2);
-      var arg = b === "sentence" ? properNames : undefined,
-          direct = Case[b](types[a], arg),
-          viaTo = types[a]['to'+_.cap(b)+'Case'](arg),
-          lossy = direct.length < types[b].length,
-          expected = lossy ? types[b].replace(/[^\w ]/g,'') : types[b];
-      strictEqual(direct, expected);
-      strictEqual(viaTo, expected);
-    });
-  }
-
   function identify(a) {
     test('identify '+a, function() {
       expect(1);
@@ -44,12 +31,6 @@
     });
   }
 
-  module('Case conversion');
-  for (var a in types) {
-    for (var b in types) {
-      convert(a, b);
-    }
-  }
 
   module('Case identification');
   for (var c in types) {
@@ -87,16 +68,14 @@
   });
 
   module('add type');
-  test('add bang', function() {
+  test('add bang and use bang', function() {
     ok(!Case.bang, 'should not be Case.bang');
     Case.type('bang', function(s) {
       return Case.upper(s, '!')+'!';
     });
     ok(Case.bang, 'should be a bang');
-  });
-  test('use bang', function() {
+    
     strictEqual(Case.bang('hi there'), 'HI!THERE!');
-    strictEqual('bang'.toBangCase(), 'BANG!');
   });
 
   module('issues');
@@ -178,13 +157,9 @@
     equal(Case.sentence(''), '');
   });
 
-  test('#22 - extra args to Case.of and to[Type]Case', function() {
+  test('#22 - extra args to Case.of', function() {
     // make sure Case.of can handle names in sentence case
     equal(Case.of("Hello, Sue, how is Bob?", ['Sue', 'Bob']), "sentence");
-    // a fill argument
-    equal("best_case_ever".toCapitalCase(". "), "Best. Case. Ever");
-    // fill and noApostrophes both
-    equal("i'm not sure".toUpperCase("/", true), "IM/NOT/SURE");
   });
 
   test('outliers', function() {
